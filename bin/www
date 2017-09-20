@@ -8,7 +8,7 @@ var app = require('../app');
 var debug = require('debug')('clinicnumber:server');
 var http = require('http');
 
-var WSS = require('ws').Server;
+//var WSS = require('ws').Server;
 
 /**
  * Get port from environment and store in Express.
