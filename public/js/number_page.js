@@ -42,7 +42,7 @@ function create_socket()
 
 window.onload = function()
 {
-    //number_text = $('#number_text');
+    number_text = $('#number_text');
     
-    //create_socket();
+    create_socket();
 }
