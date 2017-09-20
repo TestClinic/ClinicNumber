@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const WS_PORT = 8080;
+
 /**
  * Module dependencies.
  */
@@ -113,7 +115,7 @@ function broadcast()
     }
 
 
-var wss = new WSS({ port: 8081 });
+var wss = new WSS({ port: WS_PORT });
 var counter = 1;
 
 wss.on('connection', function(socket)

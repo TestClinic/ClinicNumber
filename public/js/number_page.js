@@ -1,7 +1,7 @@
 /************
 * Constants
 ************/
-const WS_ADDR = 'ws://localhost:8081';
+const WS_ADDR = 'ws://localhost:8080';
 
 /***************
 * Placeholders
