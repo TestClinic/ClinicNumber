@@ -109,7 +109,7 @@ function broadcast()
             }
     }
 
-
+/**
 var wss = new WSS({ port: 8081 });
 var counter = 1;
 
@@ -117,9 +117,9 @@ wss.on('connection', function(socket)
     {
         console.log('クライアントに接続しました');
         
-        /****************************
+        ****************************
         * Send number on connection
-        ****************************/
+        ****************************
         var json = JSON.stringify({ n: 1234 });
         socket.send(json);
         
@@ -136,3 +136,4 @@ wss.on('connection', function(socket)
 
 
 setInterval(broadcast, 1000);
+**/
