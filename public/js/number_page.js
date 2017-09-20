@@ -1,7 +1,11 @@
 /************
 * Constants
 ************/
-const WS_ADDR = 'ws://localhost:8080';
+
+const WS_HOST = 'ws://' + (process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
+const WS_PORT = process.env.WS_PORT || 8081;
+
+const WS_ADDR = WS_HOST + ':' + WS_PORT;
 
 /***************
 * Placeholders
