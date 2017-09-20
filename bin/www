@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const WS_PORT = 8443;
+const WS_PORT = 8000;
 
 /**
  * Module dependencies.

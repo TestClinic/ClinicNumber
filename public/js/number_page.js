@@ -1,8 +1,8 @@
 /************
 * Constants
 ************/
-const WS_HOST = 'ws://172.30.75.161';
-const WS_PORT = 8443;
+const WS_HOST = 'ws://clinicnumber-clinicnumber.193b.starter-ca-central-1.openshiftapps.com';
+const WS_PORT = '8000';
 
 const WS_ADDR = WS_HOST + ':' + WS_PORT;
 
