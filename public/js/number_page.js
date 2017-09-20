@@ -1,10 +1,10 @@
 /************
 * Constants
 ************/
-const WS_HOST = 'ws://clinicnumber-clinicnumber.193b.starter-ca-central-1.openshiftapps.com';
+const WS_HOST = window.document.location.hostname;
 const WS_PORT = '8000';
 
-const WS_ADDR = WS_HOST + ':' + WS_PORT;
+const WS_ADDR = 'ws://' + WS_HOST + ':' + WS_PORT + '/ws';
 
 /***************
 * Placeholders
