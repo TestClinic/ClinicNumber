@@ -2,7 +2,7 @@
 * Constants
 ************/
 const WS_HOST = 'ws://172.30.75.161';
-const WS_PORT = 8081;
+const WS_PORT = 8443;
 
 const WS_ADDR = WS_HOST + ':' + WS_PORT;
 
