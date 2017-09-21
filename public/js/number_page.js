@@ -4,7 +4,7 @@
 const WS_HOST = window.document.location.hostname;
 const WS_PORT = '8000';
 
-const WS_ADDR = 'ws://' + WS_HOST + ':' + WS_PORT;
+const WS_ADDR = 'ws://' + WS_HOST + ':' + WS_PORT + '/ws';
 
 /***************
 * Placeholders
