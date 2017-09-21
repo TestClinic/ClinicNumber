@@ -146,7 +146,7 @@ wss.on('connection', function(socket)
                 console.log('クライアントと切断しました');
             });
         
-        setInterval( () => { json.n = counter++; socket.send(counter); }, 1000 );
+        setInterval( () => { json.n = counter++; socket.send(json); }, 1000 );
     });
 
 
