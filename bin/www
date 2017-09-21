@@ -101,24 +101,24 @@ function onListening() {
 /**************************
 * Create Websocket server
 **************************/
-function broadcast()
+var wss;
+
+function broadcast(wss)
     {
         var json = JSON.stringify({ n: counter++ });
         
         for(var i = 0; i < wss.clients.length; i++)
             {
+                console.log('client', counter);
                 var client = wss.clients[i];
                 
                 client.send(json);
                 console.log('Sent: ', json);
             }
-        
-        console.log('try to connect with client...');
-        console.log(wss.clients);
     }
 
 
-var wss = new WSS
+wss = new WSS
     ({
         server: server,
         //port: WS_PORT,
@@ -148,4 +148,4 @@ wss.on('connection', function(socket)
     });
 
 
-setInterval(broadcast, 1000);
+setInterval( () => broadcast(wss), 1000);
