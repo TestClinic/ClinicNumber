@@ -1,0 +1,28 @@
+body {
+  text-align: center;
+}
+
+#number_header {
+  font-size: 35px;
+}
+
+#current_number {
+  position: relative;
+  
+  border: 2px solid black;
+  margin-top: 20px;
+  
+  height: 200px;
+  width: 200px;
+  
+  left: 40%;
+  
+  vertical-align: middle;
+  
+  background-color: aliceblue;
+  
+  text-align: center;
+  
+  font-size: 60px;
+  line-height: 200px;
+}

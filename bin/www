@@ -10,7 +10,7 @@ var app = require('../app');
 var debug = require('debug')('clinicnumber:server');
 var http = require('http');
 
-var WSS = require('ws').Server;
+var ws_server = require('./ws_server.js');
 
 /**
  * Get port from environment and store in Express.
@@ -97,57 +97,7 @@ function onListening() {
 }
 
 
-
-/**************************
-* Create Websocket server
-**************************/
-var wss;
-
-function broadcast()
-    {
-        var json = JSON.stringify({ n: counter++ });
-        
-        for(var i = 0; i < wss.clients.length; i++)
-            {
-                console.log('client', counter);
-                var client = wss.clients[i];
-                
-                client.send(json);
-                console.log('Sent: ', json);
-            }
-    }
-
-
-wss = new WSS
-    ({
-        server: server,
-        //port: WS_PORT,
-        //autoAcceptConnections: false
-    });
-var counter = 1;
-
-wss.on('connection', function(socket)
-    {
-        console.log('クライアントに接続しました');
-        
-        /****************************
-        * Send number on connection
-        ****************************/
-        var json = JSON.stringify({ n: 1234 });
-        socket.send(json);
-        
-        socket.on('message', function(msg)
-            {
-                console.log('メッセージ: ', msg);
-            });
-        
-        socket.on('close', function()
-            {
-                console.log('クライアントと切断しました');
-            });
-        
-        setInterval( () => socket.send(JSON.stringify({ n: counter++ })), 1000 );
-    });
-
-
-setInterval(broadcast, 1000);
+/******************************
+* Initialize Websocket server
+******************************/
+ws_server.init(server);
