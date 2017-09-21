@@ -112,6 +112,9 @@ function broadcast()
                 client.send(json);
                 console.log('Sent: ', json);
             }
+        
+        console.log('try to connect with client...');
+        console.log(wss.clients);
     }
 
 
@@ -146,4 +149,3 @@ wss.on('connection', function(socket)
 
 
 setInterval(broadcast, 1000);
-setInterval( () => broadcast(), 1000 );
