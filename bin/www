@@ -103,7 +103,7 @@ function onListening() {
 **************************/
 var wss;
 
-function broadcast(wss)
+function broadcast()
     {
         var json = JSON.stringify({ n: counter++ });
         
