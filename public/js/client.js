@@ -2,7 +2,6 @@
 * Constants
 ************/
 const WS_HOST = window.document.location.hostname;
-const WS_PORT = '8000';
 
 const WS_ADDR = WS_HOST == '127.0.0.1'
     ? 'ws://127.0.0.1:8080'
@@ -16,16 +15,21 @@ var current_number;
 var socket;
 
 
-/****************
-* Create socket
-****************/
+/***************************************************
+* Name        : create_socket
+* Description : Initialize the client's websocket
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+***************************************************/
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
         
         socket.onconnect = function(e)
             {
-                console.log('サーバーに接続しました');
+                console.log('Connected to server.');
             };
 
         socket.onmessage = function(e)
@@ -35,6 +39,9 @@ function create_socket()
                 console.log('Message from server:');
                 console.log(json);
                 
+                /********************************
+                * Refresh number on update push
+                ********************************/
                 if(json.msg == 'update')
                     {
                         current_number.text(json.n);

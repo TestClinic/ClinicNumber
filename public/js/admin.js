@@ -2,7 +2,6 @@
 * Constants
 ************/
 const WS_HOST = window.document.location.hostname;
-const WS_PORT = '8000';
 
 const WS_ADDR = WS_HOST == '127.0.0.1'
     ? 'ws://127.0.0.1:8080'
@@ -18,25 +17,33 @@ var right_arrow;
 var socket;
 
 
-/**************************
-* Create listening socket
-**************************/
+/***************************************************
+* Name        : create_socket
+* Description : Initialize the client's websocket
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+***************************************************/
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
         
         socket.onconnect = function(e)
             {
-                console.log('サーバーに接続しました');
+                console.log('Admin - Connected to client.');
             };
 
         socket.onmessage = function(e)
             {
                 var json = JSON.parse(e.data);
                 
-                console.log('Admin: Message from server:');
+                console.log('Admin - Message from server:');
                 console.log(json);
                 
+                /***********************
+                * Refresh only on load
+                ***********************/
                 if(json.msg == 'update' && current_number.text().trim() == '')
                     {
                         current_number.text(json.n);
@@ -45,7 +52,7 @@ function create_socket()
         
         socket.onerror = function(e)
             {
-                console.log('Error:');
+                console.log('Admin - Error:');
                 console.log(e);
                 
                 current_number.text('エラーが起きました、ページを更新してください。');
@@ -54,6 +61,14 @@ function create_socket()
             };
     }
 
+/******************************************************
+* Name        : broadcast_number
+* Description : Send the current number to the server
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+******************************************************/
 function broadcast_number()
     {
         var json =
@@ -75,23 +90,27 @@ window.onload = function()
         
         current_number.on('keydown', function(e)
             {
-                if(e.which == 13) //enter
+                /********
+                * Enter
+                ********/
+                if(e.which == 13)
                     {
                         e.preventDefault();
                         
                         broadcast_number();
+                        current_number.blur();
                     }
             });
         
         left_arrow.on('click', function(e)
             {
-                current_number.text( parseInt(current_number.text()) - 1 );
+                current_number.text( (i, old) => parseInt(old) - 1 );
                 
                 broadcast_number();
             });
         right_arrow.on('click', function(e)
             {
-                current_number.text( parseInt(current_number.text()) + 1 );
+                current_number.text( (i, old) => parseInt(old) + 1 );
                 
                 broadcast_number();
             });

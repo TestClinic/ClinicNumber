@@ -7,11 +7,19 @@ function ws_server()
             n   : 0,
             wss : '',
             
+            /*******************************************************
+            * Name        : broadcast
+            * Description : Send the current number to all clients
+            * Takes       : Nothing
+            * Returns     : Nothing
+            * Notes       : Nothing
+            * TODO        : Nothing
+            *******************************************************/
             broadcast: function()
                 {
                     var that = this;
                     
-                    console.log('Broadcast to clients:', that.n);
+                    console.log('Server - Broadcasting to ' + that.n + ' clients.');
                     
                     var json =
                         {
@@ -25,25 +33,29 @@ function ws_server()
                                 {
                                     client.send( JSON.stringify(json) );
                                     
-                                    console.log('Sent to client:', json);
+                                    console.log('Server - Sent to client:', json);
                                 }
                         });
                 },
             
+            
+            /**************************************************
+            * Name        : init
+            * Description : Initialize the server's websocket
+            * Takes       : Nothing
+            * Returns     : Nothing
+            * Notes       : Nothing
+            * TODO        : Nothing
+            **************************************************/
             init: function(server)
                 {
                     var that = this;
                     
-                    this.wss = new WSS
-                        ({
-                            server: server,
-                            //port: WS_PORT
-                        });
-                    
+                    this.wss = new WSS({ server: server });
                     
                     this.wss.on('connection', function(socket)
                         {
-                            console.log('Connected to client.');
+                            console.log('Server - Connected to client.');
                             
                             
                             /***********************************
@@ -59,7 +71,7 @@ function ws_server()
                             
                             socket.on('message', function(json)
                                 {
-                                    console.log('Message from admin:');
+                                    console.log('Server - Message from admin:');
                                     console.log(json);
                                     
                                     json = JSON.parse(json);
@@ -74,7 +86,7 @@ function ws_server()
                             
                             socket.on('close', function()
                                 {
-                                    console.log('Client disconnected.');
+                                    console.log('Server - Client disconnected.');
                                 });
                         });
                 }
