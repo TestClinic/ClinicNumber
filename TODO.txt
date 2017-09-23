@@ -1,0 +1,11 @@
+admin interface
+?????  number of customers that acceded service
+?????  HTTPS interface
+
+
+TODO
+
+CHECK There is a bug which makes wss clients to reproduce when a signal is broadcasted to clients
+BUG-- Blur cursor when pressing enter on admin text edit  
+BUG-- Error message overflows from current number div in client
+BUG-- Admin panel's current number init signal sometimes doesn't update on init on mobile
