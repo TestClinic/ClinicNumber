@@ -58,7 +58,7 @@ function create_socket()
                 console.log('Error:');
                 console.log(e);
                 
-                current_number.text('エラーが発生、ページを更新してください。');
+                current_number.text('エラー');
                 
                 setTimeout(create_socket, 1000);
             };
