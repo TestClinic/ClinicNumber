@@ -44,7 +44,7 @@ function create_socket()
                 /***********************
                 * Refresh only on load
                 ***********************/
-                if(json.msg == 'update' && current_number.text().trim() == '')
+                if(json.msg == 'init')
                     {
                         current_number.text(json.n);
                     }

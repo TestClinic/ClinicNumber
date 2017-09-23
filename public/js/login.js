@@ -27,6 +27,7 @@ $(function() {
 
 });
 
+
 function form_init()
     {
         if( $.cookie('remember') == 'true' && $.cookie('user') != undefined && $.cookie('pass') != undefined )

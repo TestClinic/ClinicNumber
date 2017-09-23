@@ -42,10 +42,14 @@ function create_socket()
                 /********************************
                 * Refresh number on update push
                 ********************************/
-                if(json.msg == 'update')
+                if(json.msg == 'update' || json.msg == 'init')
                     {
                         current_number.text(json.n);
-                        Push.create('update', { body: 'Update from server: ' + json.n });
+                        
+                        if(json.msg == 'update')
+                            {
+                                Push.create('update', { body: 'Update from server: ' + json.n });
+                            }
                     }
             };
         

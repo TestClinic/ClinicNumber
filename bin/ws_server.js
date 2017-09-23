@@ -63,7 +63,7 @@ function ws_server()
                             ***********************************/
                             var json =
                                 {
-                                    msg: 'update',
+                                    msg: 'init',
                                     n: that.n
                                 };
                             
