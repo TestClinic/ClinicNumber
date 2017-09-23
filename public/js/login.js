@@ -27,6 +27,17 @@ $(function() {
 
 });
 
+function form_init()
+    {
+        if( $.cookie('remember') == 'true' && $.cookie('user') != undefined && $.cookie('pass') != undefined)
+            {
+                user_input.val( $.cookie('user') );
+                pass_input.val( $.cookie('pass') );
+                
+                remember_me.val(true);
+            }
+    }
+
 function send_login()
     {
         var [user, pass]           = [ user_input.val(), pass_input.val() ];
@@ -70,11 +81,6 @@ window.onload = function()
         remember_me   = $('#remember');
         
         
-        if( $.cookie('remember') == 'true')
-            {
-                user_input.val( $.cookie('user') );
-                pass_input.val( $.cookie('pass') );
-            }
         
         $('#login-form').submit( function()
             {

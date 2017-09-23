@@ -45,6 +45,7 @@ function create_socket()
                 if(json.msg == 'update')
                     {
                         current_number.text(json.n);
+                        Push.create('update', { body: 'Update from server: ' + json.n });
                     }
             };
         
