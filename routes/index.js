@@ -5,6 +5,24 @@ var path = require('path');
 var auth = require('../admin/auth.js');
 
 
+function time()
+    {
+        var date = new Date();
+        return date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+    }
+
+function log_time_ip(req, res, next)
+    {
+        var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        
+        console.log('\n['+time()+'] ' + ip);
+        
+        next();
+    };
+
+router.use(log_time_ip);
+
+
 router.get('/pagecount', function(req, res, next)
     {
         res.send(true);
