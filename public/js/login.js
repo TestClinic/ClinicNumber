@@ -119,7 +119,7 @@ window.onload = function()
             {
                 $.cookie('remember', remember.checked);
                 
-                if(remember.checked == 'false')
+                if(remember.checked == false)
                     {
                         $.removeCookie('user',      { path: '/' });
                         $.removeCookie('pass',      { path: '/' });
