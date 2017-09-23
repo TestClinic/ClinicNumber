@@ -1,0 +1,45 @@
+body{
+  margin:0;
+  padding:0;
+}
+
+ul{
+  //position: absolute;
+  display:block;
+  margin:0;
+  padding: 0px 10px;
+  border-bottom: 1px solid #000;
+  background-color: #F8F8F8;
+}
+
+ul li{
+  display:inline;
+  //border: 1px solid #000;
+  padding: 10px 40px;
+
+  line-height: 100%;
+
+  list-style-type: none;
+}
+
+.left_nav{
+  float: left;
+}
+.right_nav{
+  float: right;
+}
+
+/*clear fix*/
+ul:after{
+  content: ".";
+  display: block;
+  height: 0;
+  font-size:0;
+  clear: both;
+  visibility:hidden;
+}
+
+#now_page_nav{
+  background-color: #000;
+             color: #fff;
+}
