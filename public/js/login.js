@@ -4,7 +4,7 @@ var pass_input;
 var submit_button;
 var remember_me;
 
-var old_name;
+var old_user;
 var old_pass;
 
 
@@ -29,29 +29,58 @@ $(function() {
 
 function form_init()
     {
-        if( $.cookie('remember') == 'true' && $.cookie('user') != undefined && $.cookie('pass') != undefined)
+        if( $.cookie('remember') == 'true' && $.cookie('user') != undefined && $.cookie('pass') != undefined )
             {
                 user_input.val( $.cookie('user') );
                 pass_input.val( $.cookie('pass') );
                 
-                remember_me.val(true);
+                remember.checked = true;
+            }
+        else
+            {
+                user_input.val('');
+                pass_input.val('');
             }
     }
 
-function send_login()
+function submit_login()
     {
         var [user, pass]           = [ user_input.val(), pass_input.val() ];
         var [hash_user, hash_pass] = [ sha256(user), sha256(pass) ];
         
         
+        /**************************
+        * Set cookies on remember
+        **************************/
         if( ($.cookie('remember') != undefined && $.cookie('remember') == 'true') || remember.checked )
             {
+                console.log('user', user, hash_user);
+                console.log('pass', pass, hash_pass);
+                console.log('timestamp', $.now());
+                
                 $.cookie('user', user);
                 $.cookie('pass', pass);
                 $.cookie('timestamp', $.now());
             }
+        else
+            {
+                $.removeCookie('user', { path: '/' });
+                $.removeCookie('pass', { path: '/' });
+                $.removeCookie('timestamp', { path: '/' });
+            }
         
         
+        /***********************
+        * Replace input values
+        ***********************/
+        user_input.val(hash_user);
+        pass_input.val(hash_pass);
+        
+        old_user = user;
+        old_pass = pass;
+        
+        
+        /**
         var url = '/auth.cgi?user=' + hash_user + '&pass=' + hash_pass;
         
         $.ajax
@@ -70,6 +99,9 @@ function send_login()
                         console.log(err);
                     }
             });
+        **/
+        
+        return true;
     }
 
 
@@ -81,28 +113,32 @@ window.onload = function()
         remember_me   = $('#remember');
         
         
-        
-        $('#login-form').submit( function()
-            {
-                user_input.val( function(i, old) { old_name = old; return sha256(old); } );
-                pass_input.val( function(i, old) { old_pass = old; return sha256(old); } );
-                
-                return true;
-            });
-        
-        
-        submit_button.on('click', (e) =>
-            {
-                //e.preventDefault();
-                
-                //user_input.val(old_name);
-                //pass_input.val(old_pass);
-                
-                //send_login();
-            });
+        $('#login-form').submit( submit_login );
         
         remember_me.on('change', function()
             {
                 $.cookie('remember', remember.checked);
+                
+                if(remember.checked == 'false')
+                    {
+                        $.removeCookie('user',      { path: '/' });
+                        $.removeCookie('pass',      { path: '/' });
+                        $.removeCookie('timestamp', { path: '/' });
+                    }
             });
+        
+        /**
+        submit_button.on('click', (e) =>
+            {
+                e.preventDefault();
+                
+                user_input.val(old_user);
+                pass_input.val(old_pass);
+                
+                send_login();
+            });
+        **/
+        
+        
+        form_init();
     }
