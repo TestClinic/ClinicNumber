@@ -28,6 +28,14 @@ $(function() {
 });
 
 
+/*********************************************
+* Name        : form_init
+* Description : Initialize login.html forms
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+********************************************/
 function form_init()
     {
         if( $.cookie('remember') == 'true' && $.cookie('user') != undefined && $.cookie('pass') != undefined )
@@ -44,6 +52,15 @@ function form_init()
             }
     }
 
+
+/*******************************************************
+* Name        : submit_login
+* Description : Edit login form data before submitting
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : It is triggered with an onsubmit event
+* TODO        : Nothing
+*******************************************************/
 function submit_login()
     {
         var [user, pass]           = [ user_input.val(), pass_input.val() ];

@@ -1,6 +1,14 @@
 var WSS = require('ws').Server;
 
 
+/***************************************
+* Name        : ws_server
+* Description : Websocket server class
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+***************************************/
 function ws_server()
     {
         return {

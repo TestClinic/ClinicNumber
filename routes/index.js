@@ -5,12 +5,29 @@ var path = require('path');
 var auth = require('../admin/auth.js');
 
 
+/***********************************
+* Name        : time
+* Description : Get formatted time
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+***********************************/
 function time()
     {
         var date = new Date();
         return date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     }
 
+
+/********************************************
+* Name        : log_time_ip
+* Description : Log time and ip on request
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+*******************************************/
 function log_time_ip(req, res, next)
     {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
