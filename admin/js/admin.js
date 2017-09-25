@@ -15,6 +15,14 @@ const WS_ADDR = WS_HOST == '127.0.0.1'
 var current_number;
 var left_arrow;
 var right_arrow;
+var showed_number;
+
+var reset_button;
+var reset_config;
+var config_area;
+var resume;
+
+
 var socket;
 
 
@@ -24,7 +32,7 @@ var socket;
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
-        
+
         socket.onconnect = function(e)
             {
                 console.log('サーバーに接続しました');
@@ -33,23 +41,24 @@ function create_socket()
         socket.onmessage = function(e)
             {
                 var json = JSON.parse(e.data);
-                
+
                 console.log('Admin: Message from server:');
                 console.log(json);
-                
-                if(json.msg == 'update' && current_number.text().trim() == '')
+
+                if(json.msg == 'update' && showed_number.text().trim() == '')
                     {
-                        current_number.text(json.n);
+                        showed_number.text(json.n);
                     }
             };
-        
+
         socket.onerror = function(e)
             {
                 console.log('Error:');
                 console.log(e);
-                
-                current_number.text('エラーが起きました、ページを更新してください。');
-                
+
+                showed_number.text('エラーが起きました、ページを更新してください。');
+                showed_number.css({'font-size':'20px','color':'red'});
+
                 setTimeout(create_socket, 1000);
             };
     }
@@ -59,11 +68,22 @@ function broadcast_number()
         var json =
             {
                 msg: 'broadcast',
-                n: current_number.text().trim()
+                n: showed_number.text().trim()
             };
-        
+
         socket.send( JSON.stringify(json) );
     }
+
+//引数の時間にリセットする
+/*function set_reset_time(hour,minute){
+  //現在時刻を取得
+  var now_time = new Date();
+  var now_time_s = now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds();;
+  //設定時刻を秒変換
+  var config_time_s = hour*3600 + minute*60;
+  //差
+  var diff =
+}*/
 
 
 window.onload = function()
@@ -71,31 +91,56 @@ window.onload = function()
         current_number = $('#current_number');
         left_arrow     = $('#number_left_arrow');
         right_arrow    = $('#number_right_arrow');
-        
-        
+        showed_number  = $('#showed_number');
+
+        reset_button  = $('#reset_button');
+        reset_config  = $('#reset_config');
+        config_area  = $('.config_area');
+        resume = $('#resume');
+
+        //config_area.hide();
+
         current_number.on('keydown', function(e)
             {
                 if(e.which == 13) //enter
                     {
                         e.preventDefault();
-                        
+
                         broadcast_number();
                     }
             });
-        
+
         left_arrow.on('click', function(e)
             {
-                current_number.text( parseInt(current_number.text()) - 1 );
-                
+                showed_number.text( parseInt(showed_number.text()) - 1 );
+                showed_number.css({'font-size':'80px','color':'white'});
+
                 broadcast_number();
             });
         right_arrow.on('click', function(e)
             {
-                current_number.text( parseInt(current_number.text()) + 1 );
-                
+                showed_number.text( parseInt(showed_number.text()) + 1 );
+                showed_number.css({'font-size':'80px','color':'white'});
+
                 broadcast_number();
             });
-        
-        
+        reset_button.on('click', function()
+            {
+                showed_number.text(0);
+
+                broadcast_number();
+            });
+        reset_config.on('click', function()
+            {
+                config_area.toggle();
+            });
+        resume.on('click', function()
+            {
+                config_area.hide();
+            });
+
+
+
+
         create_socket();
     }
