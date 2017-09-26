@@ -57,7 +57,14 @@ function ws_server()
                     
                     this.reset_timer = later.setInterval( () => that.reset_n(), sched);
                     
-                    this.send_client({ msg: 'reset time changed to: ' + h + ':' + m });
+                    
+                    var d = new Date();
+                    
+                    this.send_client
+                        ({
+                            msg: 'reset timer changed to: ' + h + ':' + m +
+                                ' (now: ' + d.getUTCHours() + ':' + d.getUTCMinutes() + ')'
+                        });
                 },
             
             /*******************************************************
