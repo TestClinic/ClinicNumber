@@ -14,7 +14,8 @@
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
     "ws": ">=3.2.0",
-    "jsonfile": ">=2.4.0"
+    "jsonfile": ">=2.4.0",
+    "later": ">=1.2.0"
   },
   "description": "Clinic Number",
   "main": "app.js",
