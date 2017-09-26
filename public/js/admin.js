@@ -91,6 +91,14 @@ function broadcast_number()
         socket.send( JSON.stringify(json) );
     }
 
+/************************************************
+* Name        : to_UTC
+* Description : Convert Japan/Tokyo time to UTC
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+************************************************/
 function to_UTC(h, m)
     {
         h -= 9;
@@ -99,6 +107,14 @@ function to_UTC(h, m)
         return [h, m];
     }
 
+/**********************************************************
+* Name        : set_reset
+* Description : Change reset timer status
+* Takes       : com (str): Either 'on', 'off' or 'toggle'
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+**********************************************************/
 function set_reset(com)
     {
         var json =
@@ -110,6 +126,14 @@ function set_reset(com)
         socket.send( JSON.stringify(json) );
     }
 
+/*************************************************
+* Name        : set_reset_time
+* Description : Change reset time
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : If timer is off, it's turned on
+* TODO        : Nothing
+*************************************************/
 function set_reset_time(h, m)
     {
         [h, m] = to_UTC(h, m);

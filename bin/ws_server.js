@@ -21,6 +21,15 @@ function ws_server()
             reset_time : { h: 15, m: 0 },
             reset_timer: '',
             
+            
+            /**********************************************
+            * Name        : send_client
+            * Description : Send a message to client
+            * Takes       : json (json) - Message to send
+            * Returns     : Nothing
+            * Notes       : Nothing
+            * TODO        : Nothing
+            **********************************************/
             send_client: function(json)
                 {
                     this.wss.clients.forEach( function each(client)
@@ -34,6 +43,15 @@ function ws_server()
                         });
                 },
             
+            
+            /**************************************
+            * Name        : reset_n
+            * Description : Reset current number
+            * Takes       : Nothing
+            * Returns     : Nothing
+            * Notes       : Nothing
+            * TODO        : Nothing
+            **************************************/
             reset_n: function()
                 {
                     console.log('n resetted.');
@@ -44,6 +62,15 @@ function ws_server()
                     this.send_client({ msg: 'n resetted' });
                 },
             
+            
+            /*******************************************
+            * Name        : set_reset_time
+            * Description : Change reset time
+            * Takes       : Nothing
+            * Returns     : Nothing
+            * Notes       : Restarts on timer setting
+            * TODO        : Nothing
+            *******************************************/
             set_reset_time: function(h, m)
                 {
                     var that = this;
@@ -66,6 +93,7 @@ function ws_server()
                                 ' (now: ' + d.getUTCHours() + ':' + d.getUTCMinutes() + ')'
                         });
                 },
+            
             
             /*******************************************************
             * Name        : broadcast
