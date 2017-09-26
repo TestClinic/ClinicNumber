@@ -47,6 +47,17 @@ function create_socket()
                 if(json.msg == 'init')
                     {
                         current_number.text(json.n);
+                        
+                        // json.reset_on
+                        // json.reset_time
+                    }
+                else if(json.msg == 'reset')
+                    {
+                        current_number.text(json.n);
+                    }
+                else
+                    {
+                        console.log(json.msg);
                     }
             };
         
@@ -75,6 +86,39 @@ function broadcast_number()
             {
                 msg: 'broadcast',
                 n: current_number.text().trim()
+            };
+        
+        socket.send( JSON.stringify(json) );
+    }
+
+function to_UTC(h, m)
+    {
+        h -= 9;
+        h = h < 0 ? 24+h : h;
+        
+        return [h, m];
+    }
+
+function set_reset(com)
+    {
+        var json =
+            {
+                msg: 'set_reset',
+                com: com
+            };
+        
+        socket.send( JSON.stringify(json) );
+    }
+
+function set_reset_time(h, m)
+    {
+        [h, m] = to_UTC(h, m);
+        
+        var json =
+            {
+                msg: 'set_reset_time',
+                h: h,
+                m: m
             };
         
         socket.send( JSON.stringify(json) );

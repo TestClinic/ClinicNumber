@@ -37,12 +37,12 @@ function create_socket()
                 var json = JSON.parse(e.data);
                 
                 console.log('Message from server:');
-                console.log(json);
+                console.log(json.n);
                 
                 /********************************
                 * Refresh number on update push
                 ********************************/
-                if(json.msg == 'update' || json.msg == 'init')
+                if(json.msg == 'update' || json.msg == 'init' || json.msg == 'reset')
                     {
                         current_number.text(json.n);
                         
