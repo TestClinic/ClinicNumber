@@ -12,6 +12,7 @@ const WS_ADDR = WS_HOST == '127.0.0.1'
 * Placeholders
 ***************/
 var current_number;
+var number_text;
 var socket;
 
 
@@ -26,7 +27,7 @@ var socket;
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
-        
+
         socket.onconnect = function(e)
             {
                 console.log('Connected to server.');
@@ -35,26 +36,28 @@ function create_socket()
         socket.onmessage = function(e)
             {
                 var json = JSON.parse(e.data);
-                
+
                 console.log('Message from server:');
                 console.log(json);
-                
+
                 /********************************
                 * Refresh number on update push
                 ********************************/
                 if(json.msg == 'update')
                     {
-                        current_number.text(json.n);
+                        number_text.text(json.n);
+                        number_text.css('font-size','65px');
                     }
             };
-        
+
         socket.onerror = function(e)
             {
                 console.log('Error:');
                 console.log(e);
-                
-                current_number.text('エラーが発生、ページを更新してください。');
-                
+
+                number_text.css('font-size','20px');
+                number_text.text('エラーが発生しました。ページを更新してください。');
+
                 setTimeout(create_socket, 1000);
             };
     }
@@ -63,6 +66,7 @@ function create_socket()
 window.onload = function()
 {
     current_number = $('#current_number');
-    
+    number_text    = $('#number_text');
+
     create_socket();
 }

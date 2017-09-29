@@ -12,12 +12,46 @@
     <body>
         <!-- Navbar -->
         <ul id='nav'>
-          <li onclick='window.location="./index.html"' class='left_nav' id='home_nav'>クリニック名</li>
-          <li onclick='window.location="./login.html"' class="right_nav" id='login_nav'>管理画面</li>
-          <li onclick='window.location="./client.html"' class="right_nav" id='client_nav'>診察中番号</li>
+              <li onclick='window.location="./index.html"' class='left_nav eff_1' id='home_nav'>
+                    <div class="kakomi_r eff_2">
+                          <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
+                              <img src='logo/clinic_logo.png' id='clinic_logo'/>
+                          </div>
+                          <div class='kakomi' id='two_boxes'>
+                                <div class='kakomi' id='clinic_name'>西尾皮膚科<br>クリニック</div>
+                                <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
+                          </div>
+                  </div>
+              </li>
+
+              <li onclick='window.location="./login.html"' class="right_nav eff_1" id='login_nav'>
+                <div class='kakomi_r eff_2'>
+                      <div class='flex_div kakomi_r' id='logo_wrapper'>
+                          <img src='logo/clinic_logo.png' id='nav_logo'/>
+                      </div>
+                      <div class='kakomi' id='text_boxes'>
+                            <div class='kakomi' id='nav_name'>ログイン</div>
+                            <div class='kakomi' id='nav_name_en'>Login</div>
+                      </div>
+                </div>
+              </li>
+
+              <li onclick='window.location="./client.html"' class="right_nav eff_1" id='client_nav'>
+                    <div class='kakomi_r eff_2'>
+                          <div class='flex_div kakomi_r' id='logo_wrapper'>
+                              <img src='logo/clinic_logo.png' id='nav_logo'/>
+                          </div>
+                          <div class='kakomi' id='text_boxes'>
+                                <div class='kakomi' id='nav_name'>診察番号</div>
+                                <div class='kakomi' id='nav_name_en'>Showing Number</div>
+                          </div>
+                    </div>
+              </li>
+
+
         </ul>
 
-        <text style="position: relative; left: 10px; font-size: 17px;">Main page</text>
+        <text style="position: relative; left: 10px; font-size: 17px;"></text>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

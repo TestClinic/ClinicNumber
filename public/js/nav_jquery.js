@@ -1,7 +1,7 @@
 $(function(){
 
 
-  $("#nav li").hover(function(){
+  $(".eff_1").hover(function(){
           $(this).css({
             'transition': '0.5s',
             'box-shadow':'0 0 10px gray'

@@ -12,7 +12,7 @@
 /*番号変更パネル*/
 #number_div {
   display: inline-block;
-  width: 310px;
+  width: 330px;
   margin: 0 0 0 15%;
   padding: 10px;
   /*border: 1px solid #000;*/
@@ -127,53 +127,97 @@ p#number_header{
   clear: both;
   visibility:hidden;
 }
-/*リセット設定*/
-.config_area > div{
+
+#test1{
+  border: 1px solid black;
+  width:200px;
+  height:800px;
 }
+
+/*リセット設定*/
 .config_area{
   display:none;
   position:absolute;
   right:15%;
-
   width:200px;
   height:200px;
   background-color: #718BEA;
   box-shadow: 2px 2px 10px;
 }
-#reset_time{
-  background-color: black;
-  text-align: center;
-  margin: 30px 0 0 0;
-}
-.config_area input, .config_area text{
-  display: inline-block;
-}
-.config_area input{
-  width: 40px;
-  height:40px;
-  font-size: 30px;
-}
-.config_area text{
-  color: white;
-  font-size: 15px;
-}
-#resume{
-  position:absolute;
-  bottom:0;
-  padding:0;
-  width:200px;
-  height:50px;
+              #reset_switch{
+                display:flex;
+                height:30px;
+                background-color: black;
+                text-align: center;
+                margin: 17px 0 0 0;
+              }
+                                    #on_switch{
+                                      background-color: red;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                      width:100px;
+                                      height:30px;
+                                    }
+                                    #off_switch{
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                      background-color: blue;
+                                      width:100px;
+                                      height:30px;
+                                    }
+              #reset_time{
+                background-color: black;
+                text-align: center;
+                width:150px;
+                padding:15px 0 10px 0;
+                margin: 15px 0 0 0;
+              }
+                                      .config_area input, .config_area text{
+                                        display: inline-block;
+                                      }
+                                      .config_area input{
+                                        width: 40px;
+                                        height:40px;
+                                        font-size: 30px;
+                                      }
+                                      .config_area text{
+                                        color: white;
+                                        font-size: 15px;
+                                      }
+              #resume{
+                position:absolute;
+                bottom:0;
+                padding:0;
+                width:200px;
+                height:50px;
 
-  background-color: #2884F7;
-}
-#resume > div{
-  position:relative;
-  width:200px;
-  height:50px;
-  font-size: 25px;
+                background-color: #2884F7;
+              }
+              #resume > div{
+                position:relative;
+                width:200px;
+                height:50px;
+                font-size: 25px;
 
-  /*border: 1px solid #000;*/
+                  /*border: 1px solid #000;*/
+                  display: flex;
+                  justify-content:center;
+                  align-items: center;
+                }
+
+
+/*ユーザークラス*/
+.flex_div{
   display: flex;
-  justify-content:center;
   align-items: center;
+  justify-content: center;
+}
+.zenkai_haba{
+  width:100%;
+}
+.ukideru:hover{
+  box-shadow: 0 0 10px gray;
+  transition: 0.2s;
 }

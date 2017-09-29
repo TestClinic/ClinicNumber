@@ -13,6 +13,9 @@ $(function(){
       });
   });
 
+
+
+
   /*$('#home_nav').click(function(){
     window.location.href = "./index.html";
   });

@@ -112,6 +112,17 @@ window.onload = function()
 
         left_arrow.on('click', function(e)
             {
+
+
+                left_arrow.css( {
+                  'border-color': 'transparent #fff transparent transparent',
+                  'transition': '0.01s'});
+                setTimeout(function(){
+                  left_arrow.css( {
+                    'border-color': 'transparent #000 transparent transparent',
+                    'transition': '0.7s'});
+                },30);
+
                 showed_number.text( parseInt(showed_number.text()) - 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
 
@@ -119,6 +130,15 @@ window.onload = function()
             });
         right_arrow.on('click', function(e)
             {
+                right_arrow.css( {
+                  'border-color': 'transparent transparent transparent #fff',
+                  'transition': '0.01s'});
+                setTimeout(function(){
+                  right_arrow.css( {
+                    'border-color': 'transparent transparent transparent #000',
+                    'transition': '0.7s'});
+                },30);
+
                 showed_number.text( parseInt(showed_number.text()) + 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
 
