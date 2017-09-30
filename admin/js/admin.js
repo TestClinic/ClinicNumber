@@ -2,7 +2,6 @@
 * Constants
 ************/
 const WS_HOST = window.document.location.hostname;
-const WS_PORT = '8000';
 
 const WS_ADDR = WS_HOST == '127.0.0.1'
     ? 'ws://127.0.0.1:8080'
@@ -18,34 +17,53 @@ var right_arrow;
 var socket;
 
 
-/**************************
-* Create listening socket
-**************************/
+/***************************************************
+* Name        : create_socket
+* Description : Initialize the client's websocket
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+***************************************************/
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
         
         socket.onconnect = function(e)
             {
-                console.log('サーバーに接続しました');
+                console.log('Admin - Connected to client.');
             };
 
         socket.onmessage = function(e)
             {
                 var json = JSON.parse(e.data);
                 
-                console.log('Admin: Message from server:');
+                console.log('Admin - Message from server:');
                 console.log(json);
                 
-                if(json.msg == 'update' && current_number.text().trim() == '')
+                /***********************
+                * Refresh only on load
+                ***********************/
+                if(json.msg == 'init')
                     {
                         current_number.text(json.n);
+                        
+                        // json.reset_on
+                        // json.reset_time
+                    }
+                else if(json.msg == 'reset')
+                    {
+                        current_number.text(json.n);
+                    }
+                else
+                    {
+                        console.log(json.msg);
                     }
             };
         
         socket.onerror = function(e)
             {
-                console.log('Error:');
+                console.log('Admin - Error:');
                 console.log(e);
                 
                 current_number.text('エラーが起きました、ページを更新してください。');
@@ -54,12 +72,78 @@ function create_socket()
             };
     }
 
+/******************************************************
+* Name        : broadcast_number
+* Description : Send the current number to the server
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+******************************************************/
 function broadcast_number()
     {
         var json =
             {
                 msg: 'broadcast',
                 n: current_number.text().trim()
+            };
+        
+        socket.send( JSON.stringify(json) );
+    }
+
+/************************************************
+* Name        : to_UTC
+* Description : Convert Japan/Tokyo time to UTC
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+************************************************/
+function to_UTC(h, m)
+    {
+        h -= 9;
+        h = h < 0 ? 24+h : h;
+        
+        return [h, m];
+    }
+
+/**********************************************************
+* Name        : set_reset
+* Description : Change reset timer status
+* Takes       : com (str): Either 'on', 'off' or 'toggle'
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+**********************************************************/
+function set_reset(com)
+    {
+        var json =
+            {
+                msg: 'set_reset',
+                com: com
+            };
+        
+        socket.send( JSON.stringify(json) );
+    }
+
+/*************************************************
+* Name        : set_reset_time
+* Description : Change reset time
+* Takes       : h (int) - hour
+*               m (int) - minutes
+* Returns     : Nothing
+* Notes       : If timer is off, it's turned on
+* TODO        : Nothing
+*************************************************/
+function set_reset_time(h, m)
+    {
+        [h, m] = to_UTC(h, m);
+        
+        var json =
+            {
+                msg: 'set_reset_time',
+                h: h,
+                m: m
             };
         
         socket.send( JSON.stringify(json) );
@@ -75,23 +159,27 @@ window.onload = function()
         
         current_number.on('keydown', function(e)
             {
-                if(e.which == 13) //enter
+                /********
+                * Enter
+                ********/
+                if(e.which == 13)
                     {
                         e.preventDefault();
                         
                         broadcast_number();
+                        current_number.blur();
                     }
             });
         
         left_arrow.on('click', function(e)
             {
-                current_number.text( parseInt(current_number.text()) - 1 );
+                current_number.text( (i, old) => parseInt(old) - 1 );
                 
                 broadcast_number();
             });
         right_arrow.on('click', function(e)
             {
-                current_number.text( parseInt(current_number.text()) + 1 );
+                current_number.text( (i, old) => parseInt(old) + 1 );
                 
                 broadcast_number();
             });

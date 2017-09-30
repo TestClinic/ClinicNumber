@@ -89,4 +89,11 @@ router.get(/^\/auth\.cgi/, function(req, res, next)
             : res.send('Not authorized.');
     });
 
+router.get(/^\/admin/, function(req, res, next)
+    {
+        console.log('admin request', req.url);
+        
+        res.sendFile( path.resolve('.' + req.url) );
+    });
+
 module.exports = router;
