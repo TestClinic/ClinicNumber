@@ -19,7 +19,7 @@ body {
 
 }
 
-#current_number{
+#current_number_b{
   border: 2px solid white;
 
   height: 200px;
@@ -30,11 +30,11 @@ body {
   justify-content: center;
 }
 
-#number_text{
+#current_number{
   display: inline-block;
   /*border: 2px solid white;*/
   color: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #overflore{

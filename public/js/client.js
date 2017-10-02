@@ -12,7 +12,6 @@ const WS_ADDR = WS_HOST == '127.0.0.1'
 * Placeholders
 ***************/
 var current_number;
-var number_text;
 var socket;
 
 
@@ -38,15 +37,21 @@ function create_socket()
                 var json = JSON.parse(e.data);
 
                 console.log('Message from server:');
-                console.log(json);
+                console.log(json.n);
 
                 /********************************
                 * Refresh number on update push
                 ********************************/
-                if(json.msg == 'update')
+                if(json.msg == 'update' || json.msg == 'init' || json.msg == 'reset')
                     {
-                        number_text.text(json.n);
-                        number_text.css('font-size','65px');
+                        current_number.text(json.n);
+                        current_number.css('font-size': '80px;')
+
+
+                        if(json.msg == 'update')
+                            {
+                                Push.create('Client', { body: 'Update from server: ' + json.n });
+                            }
                     }
             };
 
@@ -55,18 +60,26 @@ function create_socket()
                 console.log('Error:');
                 console.log(e);
 
-                number_text.css('font-size','20px');
-                number_text.text('エラーが発生しました。ページを更新してください。');
+                current_number.text('申し訳ございません。エラーが発生致しました。');
+                current_number.css('font-size': '15px;')
 
                 setTimeout(create_socket, 1000);
             };
     }
 
+/*現在時刻を表示する関数*/
+/*function ShowTime{
+  var nowtime = new Date();
+  var hour = nowtime.getHours();
+  var minute = nowtime.getMinutes();
+  var message = hour:minute;
+}*/
+
+
 
 window.onload = function()
 {
     current_number = $('#current_number');
-    number_text    = $('#number_text');
 
     create_socket();
 }

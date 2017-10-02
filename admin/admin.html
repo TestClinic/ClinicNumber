@@ -15,8 +15,9 @@
     <body>
         <!-- Navbar -->
         <ul id='nav'>
-              <li onclick='window.location="../public/index.html"' class='left_nav eff_1' id='home_nav'>
-                    <div class="kakomi_r eff_2">
+              <li  class='left_nav eff_1' id='home_nav'>
+                <a href='../public/index.html'>
+                    <div class="kakomi_r eff_2 left_li_inner">
                           <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
                               <img src='logo/clinic_logo.png' id='clinic_logo'/>
                           </div>
@@ -25,30 +26,35 @@
                                 <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
                           </div>
                   </div>
+                </a>
               </li>
 
-              <li onclick='window.location="../public/index.html"' class="right_nav eff_1" id='login_nav'>
-                <div class='kakomi_r eff_2'>
+              <li class="right_nav eff_1" id='login_nav'>
+                <a href='../public/login.html'>
+                <div class='kakomi_r eff_2 right_li_inner'>
                       <div class='flex_div kakomi_r' id='logo_wrapper'>
                           <img src='logo/clinic_logo.png' id='nav_logo'/>
                       </div>
                       <div class='kakomi' id='text_boxes'>
-                            <div class='kakomi' id='nav_name'>ログアウト</div>
-                            <div class='kakomi' id='nav_name_en'>Logout</div>
+                            <div class='kakomi' id='nav_name'>ログイン</div>
+                            <div class='kakomi nav_name_en'>Login</div>
                       </div>
                 </div>
+              </a>
               </li>
 
-              <li onclick='window.location="../public/client.html"' class="right_nav eff_1" id='client_nav'>
-                    <div class='kakomi_r eff_2'>
+              <li  class="right_nav eff_1" id='client_nav'>
+                <a href='../public/client.html'>
+                    <div class='kakomi_r eff_2 right_li_inner'>
                           <div class='flex_div kakomi_r' id='logo_wrapper'>
                               <img src='logo/clinic_logo.png' id='nav_logo'/>
                           </div>
                           <div class='kakomi' id='text_boxes'>
                                 <div class='kakomi' id='nav_name'>診察番号</div>
-                                <div class='kakomi' id='nav_name_en'>Showing Number</div>
+                                <div class='kakomi nav_name_en'>Showing Number</div>
                           </div>
                     </div>
+                  </a>
               </li>
         </ul>
 
@@ -72,9 +78,14 @@
         </div>
 
         <div class='config_area'>
-            <div id='reset_switch'>
+
+            <!--<div id='reset_switch'>
                 <div id='on_switch'><text>ON</text></div>
                 <div id='off_switch'><text>OFF</text></div>
+            </div>-->
+            <div class="toggle_space">
+              <input class="switch" type="checkbox" id="toggle" name="toggle">
+              <label class="toggle" for="toggle"></label>
             </div>
             <div id='reset_time_wrapper' class='flex_div zenkai_haba'>
                 <div id='reset_time'>

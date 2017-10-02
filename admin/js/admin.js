@@ -2,7 +2,6 @@
 * Constants
 ************/
 const WS_HOST = window.document.location.hostname;
-const WS_PORT = '8000';
 
 const WS_ADDR = WS_HOST == '127.0.0.1'
     ? 'ws://127.0.0.1:8080'
@@ -26,34 +25,53 @@ var resume;
 var socket;
 
 
-/**************************
-* Create listening socket
-**************************/
+/***************************************************
+* Name        : create_socket
+* Description : Initialize the client's websocket
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+***************************************************/
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
 
         socket.onconnect = function(e)
             {
-                console.log('サーバーに接続しました');
+                console.log('Admin - Connected to client.');
             };
 
         socket.onmessage = function(e)
             {
                 var json = JSON.parse(e.data);
 
-                console.log('Admin: Message from server:');
+                console.log('Admin - Message from server:');
                 console.log(json);
 
-                if(json.msg == 'update' && showed_number.text().trim() == '')
+                /***********************
+                * Refresh only on load
+                ***********************/
+                if(json.msg == 'init')
                     {
                         showed_number.text(json.n);
+
+                        // json.reset_on
+                        // json.reset_time
+                    }
+                else if(json.msg == 'reset')
+                    {
+                        showed_number.text(json.n);
+                    }
+                else
+                    {
+                        console.log(json.msg);
                     }
             };
 
         socket.onerror = function(e)
             {
-                console.log('Error:');
+                console.log('Admin - Error:');
                 console.log(e);
 
                 showed_number.text('エラーが起きました、ページを更新してください。');
@@ -63,6 +81,14 @@ function create_socket()
             };
     }
 
+/******************************************************
+* Name        : broadcast_number
+* Description : Send the current number to the server
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+******************************************************/
 function broadcast_number()
     {
         var json =
@@ -74,16 +100,62 @@ function broadcast_number()
         socket.send( JSON.stringify(json) );
     }
 
-//引数の時間にリセットする
-/*function set_reset_time(hour,minute){
-  //現在時刻を取得
-  var now_time = new Date();
-  var now_time_s = now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds();;
-  //設定時刻を秒変換
-  var config_time_s = hour*3600 + minute*60;
-  //差
-  var diff =
-}*/
+/************************************************
+* Name        : to_UTC
+* Description : Convert Japan/Tokyo time to UTC
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+************************************************/
+function to_UTC(h, m)
+    {
+        h -= 9;
+        h = h < 0 ? 24+h : h;
+
+        return [h, m];
+    }
+
+/**********************************************************
+* Name        : set_reset
+* Description : Change reset timer status
+* Takes       : com (str): Either 'on', 'off' or 'toggle'
+* Returns     : Nothing
+* Notes       : Nothing
+* TODO        : Nothing
+**********************************************************/
+function set_reset(com)
+    {
+        var json =
+            {
+                msg: 'set_reset',
+                com: com
+            };
+
+        socket.send( JSON.stringify(json) );
+    }
+
+/*************************************************
+* Name        : set_reset_time
+* Description : Change reset time
+* Takes       : Nothing
+* Returns     : Nothing
+* Notes       : If timer is off, it's turned on
+* TODO        : Nothing
+*************************************************/
+function set_reset_time(h, m)
+    {
+        [h, m] = to_UTC(h, m);
+
+        var json =
+            {
+                msg: 'set_reset_time',
+                h: h,
+                m: m
+            };
+
+        socket.send( JSON.stringify(json) );
+    }
 
 
 window.onload = function()
@@ -98,52 +170,58 @@ window.onload = function()
         config_area  = $('.config_area');
         resume = $('#resume');
 
-        //config_area.hide();
 
-        current_number.on('keydown', function(e)
+        showed_number.on('keydown', function(e)
             {
-                if(e.which == 13) //enter
+                /********
+                * Enter
+                ********/
+                if(e.which == 13)
                     {
                         e.preventDefault();
 
                         broadcast_number();
+                        showed_number.blur();
                     }
             });
 
         left_arrow.on('click', function(e)
             {
-
-
+              //エフェクトコード
+              left_arrow.css( {
+                'border-color': 'transparent #fff transparent transparent',
+                'transition': '0.01s'});
+              setTimeout(function(){
                 left_arrow.css( {
-                  'border-color': 'transparent #fff transparent transparent',
-                  'transition': '0.01s'});
-                setTimeout(function(){
-                  left_arrow.css( {
-                    'border-color': 'transparent #000 transparent transparent',
-                    'transition': '0.7s'});
-                },30);
+                  'border-color': 'transparent #000 transparent transparent',
+                  'transition': '0.7s'});
+              },30);
+              //エフェクトコード終わり
 
-                showed_number.text( parseInt(showed_number.text()) - 1 );
+                showed_number.text( (i, old) => parseInt(old) - 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
 
                 broadcast_number();
             });
         right_arrow.on('click', function(e)
             {
+              //エフェクトコード
+              right_arrow.css( {
+                'border-color': 'transparent transparent transparent #fff',
+                'transition': '0.01s'});
+              setTimeout(function(){
                 right_arrow.css( {
-                  'border-color': 'transparent transparent transparent #fff',
-                  'transition': '0.01s'});
-                setTimeout(function(){
-                  right_arrow.css( {
-                    'border-color': 'transparent transparent transparent #000',
-                    'transition': '0.7s'});
-                },30);
+                  'border-color': 'transparent transparent transparent #000',
+                  'transition': '0.7s'});
+              },30);
+              //エフェクトコード終わり
 
-                showed_number.text( parseInt(showed_number.text()) + 1 );
+                showed_number.text( (i, old) => parseInt(old) + 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
 
                 broadcast_number();
             });
+
         reset_button.on('click', function()
             {
                 showed_number.text(0);
@@ -155,11 +233,21 @@ window.onload = function()
                 config_area.toggle();
             });
         resume.on('click', function()
-            {
+            {   var on_off = $('#toggle:checked').val()
+                var hour = $('#hour').val();
+                var minute = $('#minute').val();
+
+                if(on_off){
+                    set_reset(true);
+                }else{
+                    set_reset(false);
+                }
+
+                set_reset_time(hour, minute);
+
+                console.log(on_off, hour, minute);
                 config_area.hide();
             });
-
-
 
 
         create_socket();

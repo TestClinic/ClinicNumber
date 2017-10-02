@@ -1,20 +1,21 @@
 body{
   margin:0;
   padding:0;
+  font-family: 'MS Gothic'
 }
 
 ul#nav{
-  //position: absolute;
   display:block;
   height:70px;
+
   padding: 0px 20px;
   border-bottom: 5px solid #000;
   background-color: #F0F0F0;
 }
 
-ul#nav li{
+ul#nav li:not(.now_page_nav){
   display:block;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid #000;
   border-bottom: 0 solid black;
   padding:0;
@@ -23,11 +24,39 @@ ul#nav li{
 
   list-style-type: none;
 }
-
-.now_page_nav > div{
-  background-color: #000;
-             color: #fff;
+li:not(.now_page_nav) > a{
+  display:flex;
+  color:black;
 }
+.left_nav > a:hover{
+  text-decoration: none;
+  color: black;
+}
+.right_nav:not(.now_page_nav) > a:hover{
+  /*text-decoration: none;*/
+  color: black;
+}
+.now_page_nav > a{
+  display:flex;
+  color:white;
+}
+.now_page_nav > a:hover{
+  display:flex;
+  color:white;
+}
+
+.now_page_nav{
+  display:block;
+  background-color: black;
+  border: 1px solid #000;
+  border-bottom: 0 solid black;
+  padding:0;
+  height: 100%;
+
+  list-style-type: none;
+}
+
+
 
 .left_nav{
   float: left;
@@ -50,7 +79,7 @@ ul#nav:after{
   padding:0;
   width:200px;
 }
-#home_nav > div{
+.left_li_inner{
   display:flex;
   width:200px;
   height:70px;
@@ -93,7 +122,7 @@ ul#nav:after{
 /*ホームボタン終わり*/
 
 /*サブボタン*/
-.right_nav > div{
+.right_li_inner{
   display: flex;
 
   width:150px;
@@ -125,7 +154,7 @@ ul#nav:after{
   line-height: 13px;
   text-decoration: underline;
 }
-#nav_name_en{
+.nav_name_en{
   width:100px;
   height:20px;
   font-size: 10px;
@@ -138,7 +167,8 @@ ul#nav:after{
   align-items: center;
   justify-content: center;
 }
-/*編集用ボーダー*//*
+/*編集用ボーダー*/
+/*
 .kakomi{
   border:1px solid black;
 }
@@ -196,13 +226,13 @@ ul#nav:after{
 }
 
 /* hover */
-.eff_1:hover:not(.now_page_nav)::after,
-.eff_1:hover:not(.now_page_nav)::before {
+.eff_1:hover::after,
+.eff_1:hover::before {
   width: 100%;
   width: calc(100% + 1px);
 }
-.eff_1:hover:not(.now_page_nav) .eff_2::after,
-.eff_1:hover:not(.now_page_nav) .eff_2::before {
+.eff_1:hover .eff_2::after,
+.eff_1:hover .eff_2::before {
   height: 100%;
   height: calc(100% + 1px);
 }

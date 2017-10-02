@@ -10,46 +10,50 @@
     </head>
 
     <body>
-        <!-- Navbar -->
-        <ul id='nav'>
-              <li onclick='window.location="./index.html"' class='left_nav eff_1' id='home_nav'>
-                    <div class="kakomi_r eff_2">
-                          <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
-                              <img src='logo/clinic_logo.png' id='clinic_logo'/>
-                          </div>
-                          <div class='kakomi' id='two_boxes'>
-                                <div class='kakomi' id='clinic_name'>西尾皮膚科<br>クリニック</div>
-                                <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
-                          </div>
-                  </div>
-              </li>
-
-              <li onclick='window.location="./login.html"' class="right_nav eff_1" id='login_nav'>
-                <div class='kakomi_r eff_2'>
-                      <div class='flex_div kakomi_r' id='logo_wrapper'>
-                          <img src='logo/clinic_logo.png' id='nav_logo'/>
-                      </div>
-                      <div class='kakomi' id='text_boxes'>
-                            <div class='kakomi' id='nav_name'>ログイン</div>
-                            <div class='kakomi' id='nav_name_en'>Login</div>
-                      </div>
+      <!-- Navbar -->
+      <ul id='nav'>
+            <li  class='left_nav eff_1' id='home_nav'>
+              <a href='../public/index.html'>
+                  <div class="kakomi_r eff_2 left_li_inner">
+                        <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
+                            <img src='logo/clinic_logo.png' id='clinic_logo'/>
+                        </div>
+                        <div class='kakomi' id='two_boxes'>
+                              <div class='kakomi' id='clinic_name'>西尾皮膚科<br>クリニック</div>
+                              <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
+                        </div>
                 </div>
-              </li>
+              </a>
+            </li>
 
-              <li onclick='window.location="./client.html"' class="right_nav eff_1" id='client_nav'>
-                    <div class='kakomi_r eff_2'>
-                          <div class='flex_div kakomi_r' id='logo_wrapper'>
-                              <img src='logo/clinic_logo.png' id='nav_logo'/>
-                          </div>
-                          <div class='kakomi' id='text_boxes'>
-                                <div class='kakomi' id='nav_name'>診察番号</div>
-                                <div class='kakomi' id='nav_name_en'>Showing Number</div>
-                          </div>
+            <li class="right_nav eff_1" id='login_nav'>
+              <a href='../public/login.html'>
+              <div class='kakomi_r eff_2 right_li_inner'>
+                    <div class='flex_div kakomi_r' id='logo_wrapper'>
+                        <img src='logo/clinic_logo.png' id='nav_logo'/>
                     </div>
-              </li>
+                    <div class='kakomi' id='text_boxes'>
+                          <div class='kakomi' id='nav_name'>ログイン</div>
+                          <div class='kakomi nav_name_en'>Login</div>
+                    </div>
+              </div>
+            </a>
+            </li>
 
-
-        </ul>
+            <li  class="right_nav eff_1" id='client_nav'>
+              <a href='../public/client.html'>
+                  <div class='kakomi_r eff_2 right_li_inner'>
+                        <div class='flex_div kakomi_r' id='logo_wrapper'>
+                            <img src='logo/clinic_logo.png' id='nav_logo'/>
+                        </div>
+                        <div class='kakomi' id='text_boxes'>
+                              <div class='kakomi' id='nav_name'>診察番号</div>
+                              <div class='kakomi nav_name_en'>Showing Number</div>
+                        </div>
+                  </div>
+                </a>
+            </li>
+      </ul>
 
         <text style="position: relative; left: 10px; font-size: 17px;"></text>
 

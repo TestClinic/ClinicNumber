@@ -1,6 +1,7 @@
 body{
   margin:0;
   padding:0;
+  font-family: 'MS Gothic'
 }
 
 ul#nav{
@@ -23,9 +24,25 @@ ul#nav li{
   list-style-type: none;
 }
 
-.now_page_nav > div{
-  background-color: #000;
+.now_page_nav{
+  background-color: green;
              color: #fff;
+}
+
+a{
+  display:flex;
+  color:black;
+}
+.left_nav > a:hover{
+  text-decoration: none;
+  color: black;
+}
+.right_nav > a:hover{
+  /*text-decoration: none;*/
+  color: black;
+}
+.nav_name_en:hover{
+  text-decoration: none;
 }
 
 .left_nav{
@@ -49,7 +66,7 @@ ul#nav:after{
   padding:0;
   width:200px;
 }
-#home_nav > div{
+.left_li_inner{
   display:flex;
   width:200px;
   height:70px;
@@ -92,7 +109,7 @@ ul#nav:after{
 /*ホームボタン終わり*/
 
 /*サブボタン*/
-.right_nav > div{
+.right_li_inner{
   display: flex;
 
   width:150px;
@@ -124,7 +141,7 @@ ul#nav:after{
   line-height: 13px;
   text-decoration: underline;
 }
-#nav_name_en{
+.nav_name_en{
   width:100px;
   height:20px;
   font-size: 10px;
@@ -137,7 +154,8 @@ ul#nav:after{
   align-items: center;
   justify-content: center;
 }
-/*編集用ボーダー*//*
+/*編集用ボーダー*/
+/*
 .kakomi{
   border:1px solid black;
 }
@@ -167,7 +185,7 @@ ul#nav:after{
 }
 /* 左上へ配置 */
 .eff_1::after {
-    height: 2px;
+    height: 3px;
     left: -1px;
     top: -1px;
     width: 0px;
@@ -175,7 +193,7 @@ ul#nav:after{
 /* 右下へ配置 */
 .eff_1::before {
   bottom: -1px;
-  height: 2px;
+  height: 3px;
   right: -1px;
   width: 0px;
 }
@@ -184,14 +202,14 @@ ul#nav:after{
   bottom: -1px;
   height: 0px;
   left: -1px;
-  width: 2px;
+  width: 3px;
 }
 /* 右下へ配置 */
 .eff_2::before {
   height: 0px;
   right: -1px;
   top: -1px;
-  width: 2px;
+  width: 3px;
 }
 
 /* hover */

@@ -20,76 +20,63 @@
 
     <body>
         <!-- Navbar -->
+        <!-- Navbar -->
         <ul id='nav'>
-          <li onclick='window.location="./index.html"' class='left_nav eff_1' id='home_nav'>
-                <div class="kakomi_r eff_2">
-                      <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
-                          <img src='logo/clinic_logo.png' id='clinic_logo'/>
-                      </div>
-                      <div class='kakomi' id='two_boxes'>
-                            <div class='kakomi' id='clinic_name'>西尾皮膚科<br>クリニック</div>
-                            <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
-                      </div>
-              </div>
-          </li>
-
-          <li  class="right_nav eff_1 now_page_nav" id="login_nav">
-            <div class='kakomi_r eff_2'>
-                  <div class='flex_div kakomi_r' id='logo_wrapper'>
-                      <img src='logo/clinic_logo.png' id='nav_logo'/>
+              <li  class='left_nav eff_1' id='home_nav'>
+                <a href='../public/index.html'>
+                    <div class="kakomi_r eff_2 left_li_inner">
+                          <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
+                              <img src='logo/clinic_logo.png' id='clinic_logo'/>
+                          </div>
+                          <div class='kakomi' id='two_boxes'>
+                                <div class='kakomi' id='clinic_name'>西尾皮膚科<br>クリニック</div>
+                                <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
+                          </div>
                   </div>
-                  <div class='kakomi' id='text_boxes'>
-                        <div class='kakomi' id='nav_name'>ログイン</div>
-                        <div class='kakomi' id='nav_name_en'>Login</div>
-                  </div>
-            </div>
-          </li>
+                </a>
+              </li>
 
-          <li onclick='window.location="./client.html"' class="right_nav eff_1" id='client_nav'>
-                <div class='kakomi_r eff_2'>
+              <li class="right_nav now_page_nav" id='login_nav'>
+                <a href='../public/login.html'>
+                <div class='kakomi_r  right_li_inner'>
                       <div class='flex_div kakomi_r' id='logo_wrapper'>
                           <img src='logo/clinic_logo.png' id='nav_logo'/>
                       </div>
                       <div class='kakomi' id='text_boxes'>
-                            <div class='kakomi' id='nav_name'>診察番号</div>
-                            <div class='kakomi' id='nav_name_en'>Showing Number</div>
+                            <div class='kakomi' id='nav_name'>ログイン</div>
+                            <div class='kakomi nav_name_en'>Login</div>
                       </div>
                 </div>
-          </li>
+              </a>
+              </li>
 
+              <li  class="right_nav eff_1" id='client_nav'>
+                <a href='../public/client.html'>
+                    <div class='kakomi_r eff_2 right_li_inner '>
+                          <div class='flex_div kakomi_r' id='logo_wrapper'>
+                              <img src='logo/clinic_logo.png' id='nav_logo'/>
+                          </div>
+                          <div class='kakomi' id='text_boxes'>
+                                <div class='kakomi' id='nav_name'>診察番号</div>
+                                <div class='kakomi nav_name_en'>Showing Number</div>
+                          </div>
+                    </div>
+                  </a>
+              </li>
         </ul>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-lg-12">
-								<form id="login-form" style="display: block;" action='/auth.cgi' method="get">
-									<div class="form-group">
-										<input type="text" name="user" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-									</div>
-									<div class="form-group">
-										<input type="password" name="pass" id="password" tabindex="2" class="form-control" placeholder="Password">
-									</div>
-									<div class="form-group text-center">
-										<input type="checkbox" tabindex="3" name="remember" id="remember">
-										<label for="remember"> Remember Me</label>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div id='back_img'>
+        <div class="container1">
+               <div id='login_title'>Login</div>
+               <form id="login_form_w"  action='/auth.cgi' method="get">
+                      <input type="text" name="user" id="username" tabindex="1" class="login_form" placeholder="Username" value=""><br>
+                      <input type="password" name="pass" id="password" tabindex="2" class="login_form" placeholder="Password"><br>
+                			<input type="checkbox" tabindex="3" name="remember" id="remember">
+                			<label for="remember">ログイン情報を記録する。</label>
+                      <div id='login_button_space'>
+                            <button id="login_button">LOGIN</button>
+                      </div>
+              </form>
+        </div>
+		  </div>
     </body>
 </html>
