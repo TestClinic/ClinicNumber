@@ -26,7 +26,7 @@ var socket;
 function create_socket()
     {
         socket = new WebSocket(WS_ADDR);
-        
+
         socket.onconnect = function(e)
             {
                 console.log('Connected to server.');
@@ -35,31 +35,34 @@ function create_socket()
         socket.onmessage = function(e)
             {
                 var json = JSON.parse(e.data);
-                
+
                 console.log('Message from server:');
                 console.log(json.n);
-                
+
                 /********************************
                 * Refresh number on update push
                 ********************************/
                 if(json.msg == 'update' || json.msg == 'init' || json.msg == 'reset')
                     {
                         current_number.text(json.n);
-                        
+                        current_number.css('font-size': '80px;')
+
+
                         if(json.msg == 'update')
                             {
                                 Push.create('Client', { body: 'Update from server: ' + json.n });
                             }
                     }
             };
-        
+
         socket.onerror = function(e)
             {
                 console.log('Error:');
                 console.log(e);
-                
-                current_number.text('エラー');
-                
+
+                current_number.text('申し訳ございません。エラーが発生致しました。');
+                current_number.css('font-size': '15px;')
+
                 setTimeout(create_socket, 1000);
             };
     }
@@ -68,6 +71,6 @@ function create_socket()
 window.onload = function()
 {
     current_number = $('#current_number');
-    
+
     create_socket();
 }

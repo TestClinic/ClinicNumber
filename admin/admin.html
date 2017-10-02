@@ -2,45 +2,104 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src='./js/admin.js'></script>
-        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/header.css">
+        <script src='./js/admin.js'></script>
         <link rel="stylesheet" href="./css/admin.css">
-    </head>    
+
+        <link rel="stylesheet" href="./css/nav.css">
+        <script type="text/javascript" src="./js/nav_jquery.js"></script>
+    </head>
 
     <body>
         <!-- Navbar -->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./index.html">Clinic Name</a>
-                    <ul class="nav navbar-nav">
-                        <li><a href="./client.html">Client</a></li>
-                        
-                        <!-- Actually logout -->
-                        <li class="login_button"><a href="./index.html">Admin Logout</a></li>
-                    </ul>
+        <ul id='nav'>
+              <li  class='left_nav eff_1' id='home_nav'>
+                <a href='../public/index.html'>
+                    <div class="kakomi_r eff_2 left_li_inner">
+                          <div class='flex_div kakomi_r' id='clinic_logo_wrapper'>
+                              <img src='logo/clinic_logo.png' id='clinic_logo'/>
+                          </div>
+                          <div class='kakomi' id='two_boxes'>
+                                <div class='kakomi' id='clinic_name'>西尾皮膚科<br>クリニック</div>
+                                <div class='kakomi' id='clinic_name_en'>Nishio Dermatology Clinic</div>
+                          </div>
+                  </div>
+                </a>
+              </li>
+
+              <li class="right_nav eff_1" id='login_nav'>
+                <a href='../public/login.html'>
+                <div class='kakomi_r eff_2 right_li_inner'>
+                      <div class='flex_div kakomi_r' id='logo_wrapper'>
+                          <img src='logo/clinic_logo.png' id='nav_logo'/>
+                      </div>
+                      <div class='kakomi' id='text_boxes'>
+                            <div class='kakomi' id='nav_name'>ログイン</div>
+                            <div class='kakomi nav_name_en'>Login</div>
+                      </div>
+                </div>
+              </a>
+              </li>
+
+              <li  class="right_nav eff_1" id='client_nav'>
+                <a href='../public/client.html'>
+                    <div class='kakomi_r eff_2 right_li_inner'>
+                          <div class='flex_div kakomi_r' id='logo_wrapper'>
+                              <img src='logo/clinic_logo.png' id='nav_logo'/>
+                          </div>
+                          <div class='kakomi' id='text_boxes'>
+                                <div class='kakomi' id='nav_name'>診察番号</div>
+                                <div class='kakomi nav_name_en'>Showing Number</div>
+                          </div>
+                    </div>
+                  </a>
+              </li>
+        </ul>
+
+
+        <!-- Number display -->
+        <div class='container'>
+
+            <div id='number_div'>
+                <p id='number_header'>表示ナンバー変更</p>
+                <div id='number_left_arrow' class='triangle'></div>
+                <div id='current_number'>
+                    <div id='showed_number' contentEditable='true'>123</div>
+                </div>
+                <div id='number_right_arrow' class='triangle'></div>
+            </div>
+            <div class='other_contents'>
+                <div id='reset_button' class='ukideru'><div>リセット</div></div>
+                <div id='reset_config' class='ukideru'><div>自動リセット設定</div></div>
+            </div>
+
+        </div>
+
+        <div class='config_area'>
+
+            <!--<div id='reset_switch'>
+                <div id='on_switch'><text>ON</text></div>
+                <div id='off_switch'><text>OFF</text></div>
+            </div>-->
+            <div class="toggle_space">
+              <input class="switch" type="checkbox" id="toggle" name="toggle">
+              <label class="toggle" for="toggle"></label>
+            </div>
+            <div id='reset_time_wrapper' class='flex_div zenkai_haba'>
+                <div id='reset_time'>
+                    <input type='text' id="hour" maxlength='2'></input><text>時</text>
+                    <input type='text' id="minute" maxlength='2'></input><text>分</text>
+                </div>
+                <div id='resume'>
+                    <div>確定</div>
                 </div>
             </div>
-        </nav>
-        
-        
-        <!-- Number display -->
-        <text id='number_header'>当番変更</text>
-        <div id='number_div'>
-            <img id='number_left_arrow' src='./icons/chevron-left-8x.png'/>
-            
-            <div id='current_number' contentEditable='true'>
-                <text>読込中</text>
-            </div>
-            
-            <img id='number_right_arrow' src='./icons/chevron-right-8x.png'/>
         </div>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
     </body>
 </html>

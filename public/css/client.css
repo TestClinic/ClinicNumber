@@ -3,26 +3,108 @@ body {
 }
 
 #number_header {
-  font-size: 35px;
+  font-size: 30px;
+  font-family: 'ＭＳ Ｐ明朝';
 }
 
-#current_number {
-  position: relative;
-  
-  border: 2px solid black;
-  margin-top: 20px;
-  
+#current_number_wrap{
+    width:100%;
+    height: 300px;
+    border:1px solid black;
+    background-color: black;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#current_number_b{
+  border: 2px solid white;
+
   height: 200px;
   width: 200px;
-  
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#current_number{
+  display: inline-block;
+  /*border: 2px solid white;*/
+  color: white;
+  font-size: 25px;
+}
+
+#overflore{
+  position:relative;
+}
+
+#time_space{
+  position: relative;
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  /*border: 1px solid red;*/
+}
+
+#now_time{
+  position:absolute;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  /*border: 2px solid white;*/
+
+  width: 200px;
+  right: 0;
+
+  font-size: 20px;
+  color: white;
+}
+#jikoku{
+  border:2px solid white;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+.deco_line{
+  height:10px;
+  border-bottom: 3px solid black;
+}
+
+#box1{
+  width:50%;
+}
+#box2{
+  width:30%;
+}
+#box3{
+  width:20%;
+}
+#box4{
+  width:10%;
+}
+#box5{
+  width:5%;
+}
+/*#current_number {
+  position: relative;
+
+  border: 2px solid black;
+  margin-top: 20px;
+
+  height: 200px;
+  width: 200px;
+
   left: 40%;
-  
+
   vertical-align: middle;
-  
+
   background-color: aliceblue;
-  
+
   text-align: center;
-  
+
   font-size: 60px;
   line-height: 200px;
-}
+}*/

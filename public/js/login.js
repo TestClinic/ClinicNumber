@@ -42,7 +42,7 @@ function form_init()
             {
                 user_input.val( $.cookie('user') );
                 pass_input.val( $.cookie('pass') );
-                
+
                 remember.checked = true;
             }
         else
@@ -65,8 +65,8 @@ function submit_login()
     {
         var [user, pass]           = [ user_input.val(), pass_input.val() ];
         var [hash_user, hash_pass] = [ sha256(user), sha256(pass) ];
-        
-        
+
+
         /**************************
         * Set cookies on remember
         **************************/
@@ -75,7 +75,7 @@ function submit_login()
                 console.log('user', user, hash_user);
                 console.log('pass', pass, hash_pass);
                 console.log('timestamp', $.now());
-                
+
                 $.cookie('user', user);
                 $.cookie('pass', pass);
                 $.cookie('timestamp', $.now());
@@ -86,31 +86,31 @@ function submit_login()
                 $.removeCookie('pass', { path: '/' });
                 $.removeCookie('timestamp', { path: '/' });
             }
-        
-        
+
+
         /***********************
         * Replace input values
         ***********************/
         user_input.val(hash_user);
         pass_input.val(hash_pass);
-        
+
         old_user = user;
         old_pass = pass;
-        
-        
+
+
         /**
         var url = '/auth.cgi?user=' + hash_user + '&pass=' + hash_pass;
-        
+
         $.ajax
             ({
                 method: 'GET',
                 url: url,
-                
+
                 success: function(a, b, c)
                     {
                         console.log('success', a);
                     },
-                
+
                 error: function(err)
                     {
                         console.log('Couldn\'t connect to server:');
@@ -118,7 +118,7 @@ function submit_login()
                     }
             });
         **/
-        
+
         return true;
     }
 
@@ -129,14 +129,14 @@ window.onload = function()
         pass_input    = $('#password');
         submit_button = $('#login-submit');
         remember_me   = $('#remember');
-        
-        
+
+
         $('#login-form').submit( submit_login );
-        
+
         remember_me.on('change', function()
             {
                 $.cookie('remember', remember.checked);
-                
+
                 if(remember.checked == false)
                     {
                         $.removeCookie('user',      { path: '/' });
@@ -144,19 +144,19 @@ window.onload = function()
                         $.removeCookie('timestamp', { path: '/' });
                     }
             });
-        
+
         /**
         submit_button.on('click', (e) =>
             {
                 e.preventDefault();
-                
+
                 user_input.val(old_user);
                 pass_input.val(old_pass);
-                
+
                 send_login();
             });
         **/
-        
-        
+
+
         form_init();
     }
