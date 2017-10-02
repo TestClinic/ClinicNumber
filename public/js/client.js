@@ -45,7 +45,7 @@ function create_socket()
                 if(json.msg == 'update' || json.msg == 'init' || json.msg == 'reset')
                     {
                         current_number.text(json.n);
-                        current_number.css('font-size': '80px;')
+                        current_number.css('font-size', '80px');
 
 
                         if(json.msg == 'update')
@@ -61,25 +61,29 @@ function create_socket()
                 console.log(e);
 
                 current_number.text('申し訳ございません。エラーが発生致しました。');
-                current_number.css('font-size': '15px;')
+                current_number.css('font-size', '15px')
 
                 setTimeout(create_socket, 1000);
             };
     }
 
 /*現在時刻を表示する関数*/
-/*function ShowTime{
+function ShowTime(){
   var nowtime = new Date();
   var hour = nowtime.getHours();
   var minute = nowtime.getMinutes();
-  var message = hour:minute;
-}*/
+
+  var message = hour + ':' + minute;
+  $('#jikoku').text(message);
+}
 
 
 
 window.onload = function()
 {
     current_number = $('#current_number');
+
+    setInterval('ShowTime()',5000);
 
     create_socket();
 }
