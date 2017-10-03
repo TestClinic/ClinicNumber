@@ -67,13 +67,13 @@
         <div id='back_img'>
         <div class="container1">
                <div id='login_title'>Login</div>
-               <form id="login_form_w"  action='/auth.cgi' method="get">
+               <form id="login-form"  action='/auth.cgi' method="get">
                       <input type="text" name="user" id="username" tabindex="1" class="login_form" placeholder="Username" value=""><br>
                       <input type="password" name="pass" id="password" tabindex="2" class="login_form" placeholder="Password"><br>
                 			<input type="checkbox" tabindex="3" name="remember" id="remember">
                 			<label for="remember">ログイン情報を記録する。</label>
                       <div id='login_button_space'>
-                            <button id="login_button">LOGIN</button>
+                            <button name='login-submit' id="login_button">LOGIN</button>
                       </div>
               </form>
         </div>
