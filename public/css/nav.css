@@ -10,7 +10,7 @@ ul#nav{
 
   padding: 0px 20px;
   border-bottom: 5px solid #000;
-  background-color: #F0F0F0;
+  background:linear-gradient(-300deg,#deb887,#fffacd );
 }
 
 ul#nav li:not(.now_page_nav){

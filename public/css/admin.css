@@ -9,6 +9,10 @@
   box-shadow: 5px 5px 8px;
 }
 
+a{
+  
+}
+
 /*番号変更パネル*/
 #number_div {
   display: inline-block;
