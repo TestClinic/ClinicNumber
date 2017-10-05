@@ -7,6 +7,7 @@ body{
 ul#nav{
   display:block;
   height:70px;
+
   padding: 0px 20px;
   border-bottom: 5px solid #000;
   background-color: #F0F0F0;

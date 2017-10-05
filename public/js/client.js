@@ -67,6 +67,15 @@ function create_socket()
             };
     }
 
+/*現在時刻を表示する関数*/
+/*function ShowTime{
+  var nowtime = new Date();
+  var hour = nowtime.getHours();
+  var minute = nowtime.getMinutes();
+  var message = hour:minute;
+}*/
+
+
 
 window.onload = function()
 {
