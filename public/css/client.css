@@ -3,25 +3,26 @@ body {
 }
 
 #number_header {
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'メイリオ';
 }
 
 #current_number_wrap{
     width:100%;
-    height: 300px;
-    border-top:15px solid #007199;
+    /*height: 300px;*/
+    /*border-top:15px solid #007199;*/
     /*background: linear-gradient(-300deg,#b7ffff,#eaffff );*/
 
     display:flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
 
-    background: url(../img/taki.jpg) no-repeat center;
+    background: url(../img/mizuumi.jpg) no-repeat center;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll;
     z-index: 0;
     overflow: hidden;
+    position: relative;
 }
 
 #current_number_wrap:before{
@@ -32,7 +33,7 @@ body {
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
-  /*position: absolute;*/
+  position: absolute;
   /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
   top: -5px;
   left: -5px;
@@ -41,22 +42,31 @@ body {
   z-index: -1;/*重なり順序を一番下にしておく*/
 }
 
+#current_number_header{
+  position: absolute;
+  background-color: rgba(0, 113, 153, 0.6);
+  width: 100%;
+  height: 20px;
+  top: 0;
+}
+
 #current_number_b{
-  border: 2px solid #007199;
+  /*border: 2px solid #007199;*/
 
   height: 200px;
   width: 200px;
+  margin: 40px 0 60px;;
 
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 #current_number{
   display: inline-block;
   /*border: 2px solid white;*/
-  color: #007199;
+  color: white;
   font-size: 25px;
 }
 
@@ -65,15 +75,18 @@ body {
 }
 
 #time_space{
-  position: relative;
-  background-color: #007199;
+  position: absolute;
+  background-color: rgba(0, 113, 153, 0.6);
   width: 100%;
   height: 50px;
+  bottom:0;
   /*border: 1px solid red;*/
+
+  display:flex;
+  justify-content: center;
 }
 
 #now_time{
-  position:absolute;
   display:flex;
   align-items: center;
   justify-content: center;

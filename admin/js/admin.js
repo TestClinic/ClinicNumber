@@ -40,6 +40,7 @@ function create_socket()
         socket.onconnect = function(e)
             {
                 console.log('Admin - Connected to client.');
+                console.log('testやで');
             };
 
         socket.onmessage = function(e)
@@ -47,6 +48,7 @@ function create_socket()
                 var json = JSON.parse(e.data);
 
                 console.log('Admin - Message from server:');
+                console.log('test1');
                 console.log(json);
 
                 /***********************
@@ -54,8 +56,16 @@ function create_socket()
                 ***********************/
                 if(json.msg == 'init')
                     {
+                        console.log("test2");
+                        /*console.log(json.n);
+                        console.log(json.reset_on);
+                        console.log(json.reset_time);*/
                         showed_number.text(json.n);
 
+                        /*$('input[name="toggle"]').prop('checked', json.reset_on);
+
+                        $('#hour').text(json.reset_time['h']);
+                        $('#minute').text(json.reset_time['m']);*/
                         // json.reset_on
                         // json.reset_time
                     }

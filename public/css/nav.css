@@ -1,3 +1,4 @@
+@media only screen and (min-width: 751px){
 body{
   margin:0;
   padding:0;
@@ -8,9 +9,12 @@ ul#nav{
   display:block;
   height:70px;
 
+  margin-top: 0;
   padding: 0px 20px;
   border-bottom: 5px solid #000;
   background:linear-gradient(-300deg,#deb887,#fffacd );
+
+  text-decoration: none;
 }
 
 ul#nav li:not(.now_page_nav){
@@ -20,13 +24,15 @@ ul#nav li:not(.now_page_nav){
   border-bottom: 0 solid black;
   padding:0;
 
-  height: 100%;
+  height: calc(100% - 1px);
 
   list-style-type: none;
+  text-decoration: none;
 }
 li:not(.now_page_nav) > a{
   display:flex;
   color:black;
+  text-decoration: none;
 }
 .left_nav > a:hover{
   text-decoration: none;
@@ -39,6 +45,7 @@ li:not(.now_page_nav) > a{
 .now_page_nav > a{
   display:flex;
   color:white;
+  text-decoration: none;
 }
 .now_page_nav > a:hover{
   display:flex;
@@ -137,8 +144,12 @@ ul#nav:after{
   width:50px;
   height:70px;
 }
-#nav_logo{
-  height: 40px;
+.nav_logo{
+  background-color: white;
+  border:2px solid black;
+  border-radius:30%;
+  padding:5px;
+  height: 30px;
 }
 #text_boxes{
   width:100px;
@@ -238,3 +249,275 @@ ul#nav:after{
 }
 
 /*ホバーエフェクト終わり*/
+}
+/**************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************
+***************************************************/
+@media only screen and (max-width: 750px){
+
+  body{
+    margin:0;
+    padding:0;
+    font-family: 'MS Gothic'
+  }
+
+  ul#nav{
+    display:block;
+    height:50px;
+
+    margin-top: 0;
+    padding: 0px ;
+    border-bottom: 5px solid #000;
+    background:linear-gradient(-300deg,#deb887,#fffacd );
+
+    text-decoration: none;
+  }
+
+  ul#nav li:not(.now_page_nav){
+    display:block;
+    background-color: white;
+    border: 1px solid #000;
+    border-bottom: 0 solid black;
+    padding:0;
+
+    height: calc(100% - 1px);
+
+    list-style-type: none;
+    text-decoration: none;
+  }
+  li:not(.now_page_nav) > a{
+    display:flex;
+    color:black;
+    text-decoration: none;
+  }
+  .left_nav > a:hover{
+    text-decoration: none;
+    color: black;
+  }
+  .right_nav:not(.now_page_nav) > a:hover{
+    /*text-decoration: none;*/
+    color: black;
+  }
+  .now_page_nav > a{
+    display:flex;
+    color:white;
+  }
+  .now_page_nav > a:hover{
+    display:flex;
+    color:white;
+  }
+
+  .now_page_nav{
+    display:block;
+    background-color: black;
+    border: 1px solid #000;
+    border-bottom: 0 solid black;
+    padding:0;
+    height: 100%;
+
+    list-style-type: none;
+  }
+
+
+
+  .left_nav{
+    float: left;
+  }
+  .right_nav{
+    float: right;
+  }
+
+  /*clear fix*/
+  ul#nav:after{
+    content: ".";
+    display: block;
+    height: 0;
+    font-size:0;
+    clear: both;
+    visibility:hidden;
+  }
+  /*ホームボタｎ*/
+  #home_nav{/*70*200*/
+    padding:0;
+    width:200px;
+  }
+  .left_li_inner{
+    display:flex;
+    width:200px;
+    height:70px;
+  }
+  #clinic_logo_wrapper{
+    width:70px;
+    height:50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  #clinic_logo{
+    height:45px;
+  }
+
+  #two_boxes{
+    width:125px;
+    height:50px;
+    padding:0 5px 0 0;
+
+    text-align: center;
+  }
+  #clinic_name{
+    width:125px;
+    height:35px;
+    margin:10px 0 0;
+
+    font-size: 20px;
+    line-height: 17.5px;
+  }
+  #clinic_name_en{
+    display:none;
+    width:125px;
+    height: 20px;
+
+    font-size: 10px;
+    line-height: 17px;
+    font-family: 'Monotype Corsiva';
+  }
+  /*ホームボタン終わり*/
+
+  /*サブボタン*/
+  .right_li_inner{
+    display: flex;
+
+    width:50px;
+    height:70px;
+  }
+
+  #logo_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width:50px;
+    height:50px;
+  }
+  .nav_logo{
+    border:2px solid black;
+    border-radius:30%;
+    padding:5px;
+    height: 30px;
+  }
+  #text_boxes{
+    display:none;
+    width:100px;
+    height:70px;
+    text-align: center;
+  }
+  #nav_name{
+    width:100px;
+    height:22px;
+    margin-top: 20px;
+
+    font-size: 20px;
+    line-height: 13px;
+    text-decoration: underline;
+  }
+  .nav_name_en{
+    display:none;
+    width:100px;
+    height:20px;
+    font-size: 10px;
+    font-family: 'Monotype Corsiva';
+  }
+  /*サブボタン終わり*/
+
+  .flex_div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /*編集用ボーダー*/
+  /*
+  .kakomi{
+    border:1px solid black;
+  }
+  .kakomi_r{
+    border:1px solid red;
+  }*/
+
+
+
+
+  /******************ホバーエフェクト*********************/
+  .eff_1{
+    position: relative;
+  }
+  /* 擬似要素の共通スタイル */
+  .eff_1::after,
+  .eff_1::before,
+  .eff_2::after,
+  .eff_2::before {
+    background-color:#DB0D15;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 10;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+  }
+  /* 左上へ配置 */
+  .eff_1::after {
+      height: 2px;
+      left: -1px;
+      top: -1px;
+      width: 0px;
+  }
+  /* 右下へ配置 */
+  .eff_1::before {
+    bottom: -1px;
+    height: 2px;
+    right: -1px;
+    width: 0px;
+  }
+  /* 左下へ配置 */
+  .eff_2::after {
+    bottom: -1px;
+    height: 0px;
+    left: -1px;
+    width: 2px;
+  }
+  /* 右下へ配置 */
+  .eff_2::before {
+    height: 0px;
+    right: -1px;
+    top: -1px;
+    width: 2px;
+  }
+
+  /* hover */
+  .eff_1:hover::after,
+  .eff_1:hover::before {
+    width: 100%;
+    width: calc(100% + 1px);
+  }
+  .eff_1:hover .eff_2::after,
+  .eff_1:hover .eff_2::before {
+    height: 100%;
+    height: calc(100% + 1px);
+  }
+
+  /*ホバーエフェクト終わり*/
+
+
+}

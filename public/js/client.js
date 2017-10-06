@@ -60,7 +60,7 @@ function create_socket()
                 console.log('Error:');
                 console.log(e);
 
-                current_number.text('申し訳ございません。エラーが発生致しました。');
+                current_number.html('申し訳ございません。<br>エラーが発生致しました。');
                 current_number.css('font-size', '15px')
 
                 setTimeout(create_socket, 1000);
