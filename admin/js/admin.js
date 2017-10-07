@@ -56,12 +56,35 @@ function create_socket()
                     {
                         showed_number.text(json.n);
 
+<<<<<<< HEAD
+=======
+                        console.log(json.n);
+
+                        $('input[name="toggle"]').prop('checked', json.reset_on);
+
+                        $('#hour').val(json.reset_time['h']);
+                        $('#minute').val(json.reset_time['m']);
+
+                        // json.reset_on
+                        // json.reset_time
+                    }
+                else if(json.msg == 'reset')
+                    {
+
+                        showed_number.text(json.n);
+                        showed_number.css({'font-size':'80px','color':'white'});
+
+>>>>>>> design_branch
                         // json.reset_on
                         // json.reset_time
                     }
                 else if(json.msg == 'reset')
                     {
                         showed_number.text(json.n);
+<<<<<<< HEAD
+=======
+                        showed_number.css({'font-size':'80px','color':'white'});
+>>>>>>> design_branch
                     }
                 else
                     {
@@ -138,7 +161,12 @@ function set_reset(com)
 /*************************************************
 * Name        : set_reset_time
 * Description : Change reset time
+<<<<<<< HEAD
 * Takes       : Nothing
+=======
+* Takes       : h (int) - hour
+*               m (int) - minutes
+>>>>>>> design_branch
 * Returns     : Nothing
 * Notes       : If timer is off, it's turned on
 * TODO        : Nothing
@@ -219,6 +247,7 @@ window.onload = function()
                 showed_number.text( (i, old) => parseInt(old) + 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
 
+<<<<<<< HEAD
                 broadcast_number();
             });
 
@@ -228,6 +257,17 @@ window.onload = function()
 
                 broadcast_number();
             });
+=======
+                broadcast_number();
+            });
+
+        reset_button.on('click', function()
+            {
+                showed_number.text(0);
+
+                broadcast_number();
+            });
+>>>>>>> design_branch
         reset_config.on('click', function()
             {
                 config_area.toggle();
