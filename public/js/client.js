@@ -69,12 +69,8 @@ function create_socket()
 
 /*現在時刻を表示する関数*/
 function ShowTime(){
-  var nowtime = new Date();
-  var hour = nowtime.getHours();
-  var minute = nowtime.getMinutes();
-
-  var message = hour + ':' + minute;
-  $('#jikoku').text(message);
+  var nowtime = (new Date()).toLocaleTimeString();
+  $('#jikoku').text(nowtime.substr(0, nowtime.length-3));
 }
 
 
@@ -83,7 +79,8 @@ window.onload = function()
 {
     current_number = $('#current_number');
 
-    setInterval('ShowTime()',5000);
+    ShowTime();
+    setInterval('ShowTime()',1000);
 
     create_socket();
 }

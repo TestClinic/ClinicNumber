@@ -40,7 +40,6 @@ function create_socket()
         socket.onconnect = function(e)
             {
                 console.log('Admin - Connected to client.');
-                console.log('testやで');
             };
 
         socket.onmessage = function(e)
@@ -48,7 +47,6 @@ function create_socket()
                 var json = JSON.parse(e.data);
 
                 console.log('Admin - Message from server:');
-                console.log('test1');
                 console.log(json);
 
                 /***********************
@@ -56,22 +54,31 @@ function create_socket()
                 ***********************/
                 if(json.msg == 'init')
                     {
-                        console.log("test2");
-                        /*console.log(json.n);
-                        console.log(json.reset_on);
-                        console.log(json.reset_time);*/
                         showed_number.text(json.n);
 
-                        /*$('input[name="toggle"]').prop('checked', json.reset_on);
+                        console.log(json.n);
 
-                        $('#hour').text(json.reset_time['h']);
-                        $('#minute').text(json.reset_time['m']);*/
+                        $('input[name="toggle"]').prop('checked', json.reset_on);
+
+                        $('#hour').val(json.reset_time['h']);
+                        $('#minute').val(json.reset_time['m']);
+
+                        // json.reset_on
+                        // json.reset_time
+                    }
+                else if(json.msg == 'reset')
+                    {
+
+                        showed_number.text(json.n);
+                        showed_number.css({'font-size':'80px','color':'white'});
+
                         // json.reset_on
                         // json.reset_time
                     }
                 else if(json.msg == 'reset')
                     {
                         showed_number.text(json.n);
+                        showed_number.css({'font-size':'80px','color':'white'});
                     }
                 else
                     {
@@ -148,7 +155,8 @@ function set_reset(com)
 /*************************************************
 * Name        : set_reset_time
 * Description : Change reset time
-* Takes       : Nothing
+* Takes       : h (int) - hour
+*               m (int) - minutes
 * Returns     : Nothing
 * Notes       : If timer is off, it's turned on
 * TODO        : Nothing

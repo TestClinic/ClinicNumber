@@ -15,22 +15,22 @@ later.date.UTC();
 function ws_server()
     {
         return {
-            n   : 88,
+            n   : 0,
             wss : '',
-            reset_on   : true,
+            reset_on   : false,
             reset_time : { h: 15, m: 0 },
             reset_timer: '',
 
 
             /**********************************************
             * Name        : send_client
-            * Description : Send a message to client
+            * Description : クライアントに情報を送る
             * Takes       : json (json) - Message to send
             * Returns     : Nothing
             * Notes       : Nothing
             * TODO        : Nothing
             **********************************************/
-            send_client: function(json)
+            send_client: function(json) 
                 {
                     this.wss.clients.forEach( function each(client)
                         {
@@ -46,7 +46,7 @@ function ws_server()
 
             /**************************************
             * Name        : reset_n
-            * Description : Reset current number
+            * Description : リセット時に数字をnにする
             * Takes       : Nothing
             * Returns     : Nothing
             * Notes       : Nothing

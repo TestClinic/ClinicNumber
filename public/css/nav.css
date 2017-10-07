@@ -15,6 +15,7 @@ ul#nav{
   background:linear-gradient(-300deg,#deb887,#fffacd );
 
   text-decoration: none;
+  margin-bottom: 0;
 }
 
 ul#nav li:not(.now_page_nav){
@@ -413,6 +414,7 @@ ul#nav:after{
     height:50px;
   }
   .nav_logo{
+    background-color: white;
     border:2px solid black;
     border-radius:30%;
     padding:5px;

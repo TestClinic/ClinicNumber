@@ -38,15 +38,15 @@
   position: relative;
   background-color: rgba(0,0,0,0.7);
   border:1px solid black;
-  padding: 10px 30px;
+  padding: 15px 45px;
   /*margin:0 auto;*/
-  width: 470px;
+  width: 380px;
   color:white;
 }
 
 #login_title{
   border-bottom:1px solid white;
-  width:470;
+  width:auto;
   font-size: 30px;
   text-align: center;
   margin-bottom: 10px;

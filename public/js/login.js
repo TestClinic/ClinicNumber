@@ -65,7 +65,7 @@ function submit_login()
     {
         var [user, pass]           = [ user_input.val(), pass_input.val() ];
         var [hash_user, hash_pass] = [ sha256(user), sha256(pass) ];
-
+        
 
         /**************************
         * Set cookies on remember
