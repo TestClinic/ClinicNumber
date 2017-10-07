@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 @media only screen and (min-width: 751px){
->>>>>>> design_branch
 body{
   margin:0;
   padding:0;
@@ -12,11 +9,6 @@ ul#nav{
   display:block;
   height:70px;
 
-<<<<<<< HEAD
-  padding: 0px 20px;
-  border-bottom: 5px solid #000;
-  background-color: #F0F0F0;
-=======
   margin-top: 0;
   padding: 0px 20px;
   border-bottom: 5px solid #000;
@@ -24,7 +16,6 @@ ul#nav{
 
   text-decoration: none;
   margin-bottom: 0;
->>>>>>> design_branch
 }
 
 ul#nav li:not(.now_page_nav){
@@ -34,24 +25,15 @@ ul#nav li:not(.now_page_nav){
   border-bottom: 0 solid black;
   padding:0;
 
-<<<<<<< HEAD
-  height: 100%;
-
-  list-style-type: none;
-=======
   height: calc(100% - 1px);
 
   list-style-type: none;
   text-decoration: none;
->>>>>>> design_branch
 }
 li:not(.now_page_nav) > a{
   display:flex;
   color:black;
-<<<<<<< HEAD
-=======
   text-decoration: none;
->>>>>>> design_branch
 }
 .left_nav > a:hover{
   text-decoration: none;
@@ -64,10 +46,7 @@ li:not(.now_page_nav) > a{
 .now_page_nav > a{
   display:flex;
   color:white;
-<<<<<<< HEAD
-=======
   text-decoration: none;
->>>>>>> design_branch
 }
 .now_page_nav > a:hover{
   display:flex;
@@ -166,17 +145,12 @@ ul#nav:after{
   width:50px;
   height:70px;
 }
-<<<<<<< HEAD
-#nav_logo{
-  height: 40px;
-=======
 .nav_logo{
   background-color: white;
   border:2px solid black;
   border-radius:30%;
   padding:5px;
   height: 30px;
->>>>>>> design_branch
 }
 #text_boxes{
   width:100px;
@@ -276,8 +250,6 @@ ul#nav:after{
 }
 
 /*ホバーエフェクト終わり*/
-<<<<<<< HEAD
-=======
 }
 /**************************************************
 ***************************************************
@@ -551,4 +523,3 @@ ul#nav:after{
 
 
 }
->>>>>>> design_branch

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 @media only screen and (min-width: 751px){
->>>>>>> design_branch
 body{
   margin:0;
   padding:0;
@@ -11,16 +8,6 @@ body{
 ul#nav{
   display:block;
   height:70px;
-<<<<<<< HEAD
-  padding: 0px 20px;
-  border-bottom: 5px solid #000;
-  background-color: #F0F0F0;
-}
-
-ul#nav li{
-  display:block;
-  background-color: #fff;
-=======
 
   margin-top: 0;
   padding: 0px 20px;
@@ -33,26 +20,10 @@ ul#nav li{
 ul#nav li:not(.now_page_nav){
   display:block;
   background-color: white;
->>>>>>> design_branch
   border: 1px solid #000;
   border-bottom: 0 solid black;
   padding:0;
 
-<<<<<<< HEAD
-  height: 100%;
-
-  list-style-type: none;
-}
-
-.now_page_nav{
-  background-color: green;
-             color: #fff;
-}
-
-a{
-  display:flex;
-  color:black;
-=======
   height: calc(100% - 1px);
 
   list-style-type: none;
@@ -62,22 +33,11 @@ li:not(.now_page_nav) > a{
   display:flex;
   color:black;
   text-decoration: none;
->>>>>>> design_branch
 }
 .left_nav > a:hover{
   text-decoration: none;
   color: black;
 }
-<<<<<<< HEAD
-.right_nav > a:hover{
-  /*text-decoration: none;*/
-  color: black;
-}
-.nav_name_en:hover{
-  text-decoration: none;
-}
-
-=======
 .right_nav:not(.now_page_nav) > a:hover{
   /*text-decoration: none;*/
   color: black;
@@ -104,7 +64,6 @@ li:not(.now_page_nav) > a{
 
 
 
->>>>>>> design_branch
 .left_nav{
   float: left;
 }
@@ -184,16 +143,11 @@ ul#nav:after{
   width:50px;
   height:70px;
 }
-<<<<<<< HEAD
-#nav_logo{
-  height: 40px;
-=======
 .nav_logo{
   border:2px solid black;
   border-radius:30%;
   padding:5px;
   height: 30px;
->>>>>>> design_branch
 }
 #text_boxes{
   width:100px;
@@ -253,11 +207,7 @@ ul#nav:after{
 }
 /* 左上へ配置 */
 .eff_1::after {
-<<<<<<< HEAD
-    height: 3px;
-=======
     height: 2px;
->>>>>>> design_branch
     left: -1px;
     top: -1px;
     width: 0px;
@@ -265,11 +215,7 @@ ul#nav:after{
 /* 右下へ配置 */
 .eff_1::before {
   bottom: -1px;
-<<<<<<< HEAD
-  height: 3px;
-=======
   height: 2px;
->>>>>>> design_branch
   right: -1px;
   width: 0px;
 }
@@ -278,30 +224,13 @@ ul#nav:after{
   bottom: -1px;
   height: 0px;
   left: -1px;
-<<<<<<< HEAD
-  width: 3px;
-=======
   width: 2px;
->>>>>>> design_branch
 }
 /* 右下へ配置 */
 .eff_2::before {
   height: 0px;
   right: -1px;
   top: -1px;
-<<<<<<< HEAD
-  width: 3px;
-}
-
-/* hover */
-.eff_1:hover:not(.now_page_nav)::after,
-.eff_1:hover:not(.now_page_nav)::before {
-  width: 100%;
-  width: calc(100% + 1px);
-}
-.eff_1:hover:not(.now_page_nav) .eff_2::after,
-.eff_1:hover:not(.now_page_nav) .eff_2::before {
-=======
   width: 2px;
 }
 
@@ -313,14 +242,11 @@ ul#nav:after{
 }
 .eff_1:hover .eff_2::after,
 .eff_1:hover .eff_2::before {
->>>>>>> design_branch
   height: 100%;
   height: calc(100% + 1px);
 }
 
 /*ホバーエフェクト終わり*/
-<<<<<<< HEAD
-=======
 }
 /**************************************************
 ***************************************************
@@ -593,4 +519,3 @@ ul#nav:after{
 
 
 }
->>>>>>> design_branch

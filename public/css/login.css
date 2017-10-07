@@ -38,25 +38,15 @@
   position: relative;
   background-color: rgba(0,0,0,0.7);
   border:1px solid black;
-<<<<<<< HEAD
-  padding: 10px 30px;
-  /*margin:0 auto;*/
-  width: 470px;
-=======
   padding: 15px 45px;
   /*margin:0 auto;*/
   width: 380px;
->>>>>>> design_branch
   color:white;
 }
 
 #login_title{
   border-bottom:1px solid white;
-<<<<<<< HEAD
-  width:470;
-=======
   width:auto;
->>>>>>> design_branch
   font-size: 30px;
   text-align: center;
   margin-bottom: 10px;
@@ -68,10 +58,7 @@
   height:25px;
   font-size: 16px;
   margin:5px 0;
-<<<<<<< HEAD
-=======
   color:black;
->>>>>>> design_branch
 }
 
 #login_button_space{

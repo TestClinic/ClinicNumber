@@ -55,11 +55,7 @@ function create_socket()
                 if(json.msg == 'init')
                     {
                         showed_number.text(json.n);
-<<<<<<< HEAD
-                    
-=======
 
->>>>>>> design_branch
                         showed_number.css({'font-size':'80px','color':'white'});
 
                         // json.reset_on
@@ -232,10 +228,7 @@ window.onload = function()
         reset_button.on('click', function()
             {
                 showed_number.text(0);
-<<<<<<< HEAD
-=======
                 showed_number.css({'font-size':'80px','color':'white'});
->>>>>>> design_branch
 
                 broadcast_number();
             });

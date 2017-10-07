@@ -1,69 +1,11 @@
-<<<<<<< HEAD
-=======
 @media only screen and (min-width: 751px){
 
->>>>>>> design_branch
 .container{
   position: relative;
   /*border: 1px solid #E0572A ;*/
   width:auto;
   background-color:#F0F0F0;
   font-size: 0;
-<<<<<<< HEAD
-  margin: 30px 5% 0 5%;
-  padding:20px 0;
-  box-shadow: 5px 5px 8px;
-}
-
-a{
-  
-}
-
-/*番号変更パネル*/
-#number_div {
-  display: inline-block;
-  width: 330px;
-  margin: 0 0 0 15%;
-  padding: 10px;
-  /*border: 1px solid #000;*/
-  background-color: #fff;
-  font-size: 0;
-}
-#number_div > div{
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 30px;
-}
-p#number_header{
-  display: block;
-  font-size: 26px;
-  margin: 0 auto;
-  text-align: center;
-}
-#current_number {
-  margin:0 10px;
-  width:200px;
-  height:200px;
-  border: 1px solid #000;
-  background-color: #000;
-}
-#showed_number{
-  color: #fff;
-  font-size: 80px;
-  width:200px;
-  height:200px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.triangle{
-  border: 1px solid #000;
-  width: 40px;
-  height: 40px;
-  vertical-align: middle;
-}
-=======
   margin: 40px 5% 0 5%;
   padding:20px 0;
   box-shadow: 5px 5px 8px;
@@ -117,7 +59,6 @@ p#number_header{
   height: 40px;
   vertical-align: middle;
 }
->>>>>>> design_branch
 #number_left_arrow {
   width: 0;
   height: 0;
@@ -148,8 +89,6 @@ p#number_header{
   height: 40px;
   margin: 10px 0;
   line-height: 100%;
-<<<<<<< HEAD
-=======
 }
 .other_contents > div > div{
   position:relative;
@@ -400,29 +339,8 @@ p#number_header{
 
 a{
 
->>>>>>> design_branch
 }
-.other_contents > div > div{
-  position:relative;
-  width: 150px;
-  height: 40px;
-  /*border:1px solid black;*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-                            #reset_button{
-                              background-color: #98d98e;
-                              font-size:22px;
-                            }
-                            #reset_config{
-                              background-color: #202838;
-                              color: white;
-                              font-size:16px;
-                            }
 
-<<<<<<< HEAD
-=======
 /*番号変更パネル*/
 #number_div {
   display: inline-block;
@@ -515,7 +433,6 @@ p#number_header{
                               font-size:16px;
                             }
 
->>>>>>> design_branch
 /* clear fix */
 .container:after{
   content: ".";
@@ -557,10 +474,7 @@ p#number_header{
   height:200px;
   background-color: #202838;
   box-shadow: 2px 2px 10px;
-<<<<<<< HEAD
-=======
   margin-bottom: 30px;
->>>>>>> design_branch
 }
                     /*トグル*/
                     .toggle_space {
@@ -683,10 +597,7 @@ p#number_header{
               }
                                       .config_area input, .config_area text{
                                         display: inline-block;
-<<<<<<< HEAD
-=======
 
->>>>>>> design_branch
                                       }
                                       .config_area input{
                                         width: 40px;
@@ -732,7 +643,4 @@ p#number_header{
   box-shadow: 0 0 10px gray;
   transition: 0.2s;
 }
-<<<<<<< HEAD
-=======
 }
->>>>>>> design_branch
