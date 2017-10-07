@@ -70,4 +70,4 @@ window.onload = function()
     current_number = $('#current_number');
     
     create_socket();
-}
+};

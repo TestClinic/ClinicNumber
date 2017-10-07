@@ -38,7 +38,7 @@ $(function() {
 ********************************************/
 function form_init()
     {
-        if( $.cookie('remember') == 'true' && $.cookie('user') != undefined && $.cookie('pass') != undefined )
+        if( $.cookie('remember') == 'true' && $.cookie('user') !== undefined && $.cookie('pass') !== undefined )
             {
                 user_input.val( $.cookie('user') );
                 pass_input.val( $.cookie('pass') );
@@ -70,7 +70,7 @@ function submit_login()
         /**************************
         * Set cookies on remember
         **************************/
-        if( ($.cookie('remember') != undefined && $.cookie('remember') == 'true') || remember.checked )
+        if( ($.cookie('remember') !== undefined && $.cookie('remember') == 'true') || remember.checked )
             {
                 console.log('user', user, hash_user);
                 console.log('pass', pass, hash_pass);
@@ -137,7 +137,7 @@ window.onload = function()
             {
                 $.cookie('remember', remember.checked);
                 
-                if(remember.checked == false)
+                if(remember.checked === false)
                     {
                         $.removeCookie('user',      { path: '/' });
                         $.removeCookie('pass',      { path: '/' });
@@ -159,4 +159,4 @@ window.onload = function()
         
         
         form_init();
-    }
+    };

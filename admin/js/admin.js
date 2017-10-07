@@ -186,4 +186,4 @@ window.onload = function()
         
         
         create_socket();
-    }
+    };

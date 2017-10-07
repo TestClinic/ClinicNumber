@@ -35,7 +35,7 @@ function log_time_ip(req, res, next)
         console.log('\n['+time()+'] ' + ip);
         
         next();
-    };
+    }
 
 router.use(log_time_ip);
 
@@ -64,7 +64,7 @@ router.get(/^\/auth\.cgi/, function(req, res, next)
         ****************/
         var args  = req.url.match(/auth.cgi\?(.+)/);
         
-        if(!args || args.length == 0) { return; }
+        if(!args || args.length === 0) { return; }
         args = args[1];
         
         
@@ -72,7 +72,7 @@ router.get(/^\/auth\.cgi/, function(req, res, next)
         * Parse arguments
         ******************/
         args = args.split('&')
-            .filter( (arg)  => arg != '' )
+            .filter( (arg)  => arg !== '' )
             .map   ( (pair) => pair.split('=') );
         
         for(var i = 0; i < args.length; i++)
