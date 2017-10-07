@@ -3,26 +3,147 @@ body {
 }
 
 #number_header {
-  font-size: 35px;
+  display:block;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'メイリオ';
 }
 
-#current_number {
-  position: relative;
-  
-  border: 2px solid black;
-  margin-top: 20px;
-  
+#current_number_wrap{
+    width:100%;
+    /*height: 300px;*/
+    /*border-top:15px solid #007199;*/
+    /*background: linear-gradient(-300deg,#b7ffff,#eaffff );*/
+
+    display:flex;
+    /*align-items: center;*/
+    justify-content: center;
+
+    background: url(../img/mizuumi.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: scroll;
+    z-index: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#current_number_wrap:before{
+  content: '';
+  background: inherit;/*.bgImageで設定した背景画像を継承する*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;/*重なり順序を一番下にしておく*/
+}
+
+#current_number_header{
+  position: absolute;
+  background-color: rgba(0, 113, 153, 0.6);
+  width: 100%;
+  height: 20px;
+  top: 0;
+}
+
+#current_number_b{
+  /*border: 2px solid #007199;*/
+
   height: 200px;
   width: 200px;
-  
+  margin: 40px 0 60px;;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#current_number{
+  display: inline-block;
+  /*border: 2px solid white;*/
+  color: white;
+  font-size: 25px;
+}
+
+#overflore{
+  position:relative;
+}
+
+#time_space{
+  position: absolute;
+  background-color: rgba(0, 113, 153, 0.6);
+  width: 100%;
+  height: 50px;
+  bottom:0;
+  /*border: 1px solid red;*/
+
+  display:flex;
+  justify-content: center;
+}
+
+#now_time{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  /*border: 2px solid white;*/
+
+  width: 200px;
+  right: 0;
+
+  font-size: 20px;
+  color: white;
+}
+#jikoku{
+  border:2px solid white;
+  font-size: 30px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.deco_line{
+  height:10px;
+  border-bottom: 3px solid #007199;
+}
+
+#box1{
+  width:50%;
+}
+#box2{
+  width:30%;
+}
+#box3{
+  width:20%;
+}
+#box4{
+  width:10%;
+}
+#box5{
+  width:5%;
+}
+/*#current_number {
+  position: relative;
+
+  border: 2px solid black;
+  margin-top: 20px;
+
+  height: 200px;
+  width: 200px;
+
   left: 40%;
-  
+
   vertical-align: middle;
-  
+
   background-color: aliceblue;
-  
+
   text-align: center;
-  
+
   font-size: 60px;
   line-height: 200px;
-}
+}*/
