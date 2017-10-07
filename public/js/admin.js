@@ -170,8 +170,10 @@ window.onload = function()
 
         reset_button  = $('#reset_button');
         reset_config  = $('#reset_config');
-        config_area  = $('.config_area');
-        resume = $('#resume');
+        config_area   = $('.config_area');
+        resume        = $('#resume');
+        
+        //var i;
 
 
         showed_number.on('keydown', function(e)
@@ -190,17 +192,23 @@ window.onload = function()
 
         left_arrow.on('click', function(e)
             {
-              //エフェクトコード
-              left_arrow.css( {
-                'border-color': 'transparent #fff transparent transparent',
-                'transition': '0.01s'});
-              setTimeout(function(){
-                left_arrow.css( {
-                  'border-color': 'transparent #000 transparent transparent',
-                  'transition': '0.7s'});
-              },30);
-              //エフェクトコード終わり
-
+                //エフェクトコード
+                left_arrow.css
+                    ({
+                        'border-color': 'transparent #fff transparent transparent',
+                        'transition': '0.01s'
+                    });
+                setTimeout( function()
+                    {
+                        left_arrow.css
+                            ({
+                                'border-color': 'transparent #000 transparent transparent',
+                                'transition': '0.7s'
+                            });
+                    }, 30);
+                
+                //エフェクトコード終わり
+    
                 showed_number.text( (i, old) => parseInt(old) - 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
 
@@ -208,16 +216,23 @@ window.onload = function()
             });
         right_arrow.on('click', function(e)
             {
-              //エフェクトコード
-              right_arrow.css( {
-                'border-color': 'transparent transparent transparent #fff',
-                'transition': '0.01s'});
-              setTimeout(function(){
-                right_arrow.css( {
-                  'border-color': 'transparent transparent transparent #000',
-                  'transition': '0.7s'});
-              },30);
-              //エフェクトコード終わり
+                //エフェクトコード
+                right_arrow.css
+                    ({
+                        'border-color': 'transparent transparent transparent #fff',
+                        'transition': '0.01s'
+                    });
+              
+                setTimeout( function()
+                    {
+                        right_arrow.css
+                            ({
+                                'border-color': 'transparent transparent transparent #000',
+                                'transition': '0.7s'
+                            });
+                    }, 30);
+              
+                //エフェクトコード終わり
 
                 showed_number.text( (i, old) => parseInt(old) + 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
@@ -227,7 +242,7 @@ window.onload = function()
 
         reset_button.on('click', function()
             {
-                showed_number.text(0);
+                showed_number.text('0');
                 showed_number.css({'font-size':'80px','color':'white'});
 
                 broadcast_number();
@@ -237,22 +252,26 @@ window.onload = function()
                 config_area.toggle();
             });
         resume.on('click', function()
-            {   var on_off = $('#toggle:checked').val()
-                var hour = $('#hour').val();
+            {
+                var on_off = $('#toggle:checked').val();
+                var hour   = $('#hour').val();
                 var minute = $('#minute').val();
 
-                if(on_off){
-                    set_reset(true);
-                }else{
-                    set_reset(false);
-                }
-
-                set_reset_time(hour, minute);
-
                 console.log(on_off, hour, minute);
+                
+                if(on_off)
+                    {
+                        set_reset('on');
+                        set_reset_time(hour, minute);
+                    }
+                else
+                    {
+                        set_reset('off');
+                    }
+
                 config_area.hide();
             });
 
 
         create_socket();
-    }
+    };

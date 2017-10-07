@@ -61,17 +61,19 @@ function create_socket()
                 console.log(e);
 
                 current_number.html('申し訳ございません。<br>エラーが発生致しました。');
-                current_number.css('font-size', '15px')
+                current_number.css('font-size', '15px');
 
                 setTimeout(create_socket, 1000);
             };
     }
 
-/*現在時刻を表示する関数*/
-function ShowTime(){
-  var nowtime = (new Date()).toLocaleTimeString();
-  $('#jikoku').text(nowtime.substr(0, nowtime.length-3));
-}
+/*現在時刻を表示する*/
+function ShowTime()
+    {
+        var nowtime = (new Date()).toLocaleTimeString();
+        
+        $('#jikoku').text(nowtime.substr(0, nowtime.length-3));
+    }
 
 
 
@@ -80,7 +82,7 @@ window.onload = function()
     current_number = $('#current_number');
 
     ShowTime();
-    setInterval('ShowTime()',1000);
+    setInterval(ShowTime, 1000);
 
     create_socket();
 };

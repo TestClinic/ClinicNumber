@@ -1,6 +1,4 @@
 $(function(){
-
-
   $(".eff_1").hover(function(){
           $(this).css({
             'transition': '0.5s',

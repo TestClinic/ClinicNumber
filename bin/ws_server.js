@@ -75,7 +75,7 @@ function ws_server()
                 {
                     var that = this;
 
-                    if(this.reset_timer != '') { this.reset_timer.clear(); }
+                    if(this.reset_timer !== '') { this.reset_timer.clear(); }
 
                     this.reset_time.h = h;
                     this.reset_time.m = m;
@@ -183,7 +183,7 @@ function ws_server()
                                                 }
                                             else if(!that.reset_on)
                                                 {
-                                                    if(that.reset_timer != '') { that.reset_timer.clear(); }
+                                                    if(that.reset_timer !== '') { that.reset_timer.clear(); }
                                                 }
 
                                             that.send_client('reset timer ' + that.reset_on ? 'on' : 'off' + '.');
