@@ -60,14 +60,13 @@ function create_socket()
                 console.log('Error:');
                 console.log(e);
 
-                current_number.html('申し訳ございません。<br>エラーが発生致しました。');
+                current_number.html('Sorry, there was an error.');
                 current_number.css('font-size', '15px');
 
                 setTimeout(create_socket, 1000);
             };
     }
 
-/*現在時刻を表示する*/
 function ShowTime()
     {
         var nowtime = (new Date()).toLocaleTimeString();
@@ -81,7 +80,7 @@ window.onload = function()
 {
     current_number = $('#current_number');
 
-    ShowTime();
+    //ShowTime();
     setInterval(ShowTime, 1000);
 
     create_socket();

@@ -24,7 +24,7 @@ function ws_server()
 
             /**********************************************
             * Name        : send_client
-            * Description : クライアントに情報を送る
+            * Description : Send message to client
             * Takes       : json (json) - Message to send
             * Returns     : Nothing
             * Notes       : Nothing
@@ -46,7 +46,7 @@ function ws_server()
 
             /**************************************
             * Name        : reset_n
-            * Description : リセット時に数字をnにする
+            * Description : Reset current number
             * Takes       : Nothing
             * Returns     : Nothing
             * Notes       : Nothing
@@ -66,7 +66,8 @@ function ws_server()
             /*******************************************
             * Name        : set_reset_time
             * Description : Change reset time
-            * Takes       : Nothing
+            * Takes       : h (number) - Hour
+            *               m (number) - Minutes
             * Returns     : Nothing
             * Notes       : Restarts on timer setting
             * TODO        : Nothing
@@ -98,7 +99,7 @@ function ws_server()
             /*******************************************************
             * Name        : broadcast
             * Description : Send the current number to all clients
-            * Takes       : Nothing
+            * Takes       : msg (json) - Message to broadcast
             * Returns     : Nothing
             * Notes       : Nothing
             * TODO        : Nothing
@@ -116,7 +117,7 @@ function ws_server()
             /**************************************************
             * Name        : init
             * Description : Initialize the server's websocket
-            * Takes       : Nothing
+            * Takes       : server (obj) - HTTP server
             * Returns     : Nothing
             * Notes       : Nothing
             * TODO        : Nothing
@@ -186,7 +187,7 @@ function ws_server()
                                                     if(that.reset_timer !== '') { that.reset_timer.clear(); }
                                                 }
 
-                                            that.send_client('reset timer ' + that.reset_on ? 'on' : 'off' + '.');
+                                            that.send_client('reset timer ' + (that.reset_on ? 'on' : 'off') + '.');
                                         }
                                     else if(json.msg == 'set_reset_time')
                                         {

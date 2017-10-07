@@ -103,14 +103,15 @@ function broadcast_number()
         socket.send( JSON.stringify(json) );
     }
 
-/************************************************
+/*************************************************
 * Name        : to_UTC
 * Description : Convert Japan/Tokyo time to UTC
-* Takes       : Nothing
-* Returns     : Nothing
+* Takes       : h (number) - Japan/Tokyo Hour
+*               m (number) - Japn/Tokyo Minutes
+* Returns     : (array) - UTC hour and minutes
 * Notes       : Nothing
 * TODO        : Nothing
-************************************************/
+*************************************************/
 function to_UTC(h, m)
     {
         h -= 9;
@@ -119,14 +120,14 @@ function to_UTC(h, m)
         return [h, m];
     }
 
-/**********************************************************
+/*****************************************************************
 * Name        : set_reset
 * Description : Change reset timer status
-* Takes       : com (str): Either 'on', 'off' or 'toggle'
+* Takes       : com (str) - Status to set reset to
 * Returns     : Nothing
-* Notes       : Nothing
+* Notes       : com status can be either 'on', 'off' or 'toggle'
 * TODO        : Nothing
-**********************************************************/
+*****************************************************************/
 function set_reset(com)
     {
         var json =
@@ -141,7 +142,8 @@ function set_reset(com)
 /*************************************************
 * Name        : set_reset_time
 * Description : Change reset time
-* Takes       : Nothing
+* Takes       : h (number) - Hour
+*               m (number) - Minutes
 * Returns     : Nothing
 * Notes       : If timer is off, it's turned on
 * TODO        : Nothing
@@ -172,8 +174,6 @@ window.onload = function()
         reset_config  = $('#reset_config');
         config_area   = $('.config_area');
         resume        = $('#resume');
-        
-        //var i;
 
 
         showed_number.on('keydown', function(e)
@@ -192,7 +192,6 @@ window.onload = function()
 
         left_arrow.on('click', function(e)
             {
-                //エフェクトコード
                 left_arrow.css
                     ({
                         'border-color': 'transparent #fff transparent transparent',
@@ -207,7 +206,6 @@ window.onload = function()
                             });
                     }, 30);
                 
-                //エフェクトコード終わり
     
                 showed_number.text( (i, old) => parseInt(old) - 1 );
                 showed_number.css({'font-size':'80px','color':'white'});
@@ -216,7 +214,6 @@ window.onload = function()
             });
         right_arrow.on('click', function(e)
             {
-                //エフェクトコード
                 right_arrow.css
                     ({
                         'border-color': 'transparent transparent transparent #fff',
@@ -231,8 +228,7 @@ window.onload = function()
                                 'transition': '0.7s'
                             });
                     }, 30);
-              
-                //エフェクトコード終わり
+                
 
                 showed_number.text( (i, old) => parseInt(old) + 1 );
                 showed_number.css({'font-size':'80px','color':'white'});

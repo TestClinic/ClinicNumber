@@ -9,7 +9,7 @@ var app = require('../app');
 var debug = require('debug')('clinicnumber:server');
 var http = require('http');
 
-//var ws_server = require('./ws_server.js');
+var ws_server = require('./ws_server.js');
 
 /**
  * Get port from environment and store in Express.
@@ -99,4 +99,4 @@ function onListening() {
 /******************************
 * Initialize Websocket server
 ******************************/
-//ws_server.init(server);
+ws_server.init(server);

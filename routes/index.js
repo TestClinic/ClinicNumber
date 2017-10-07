@@ -23,7 +23,9 @@ function time()
 /********************************************
 * Name        : log_time_ip
 * Description : Log time and ip on request
-* Takes       : Nothing
+* Takes       : req (obj)  - HTTP request
+*               req (res)  - HTTP response
+*               req (next) - Next object
 * Returns     : Nothing
 * Notes       : Nothing
 * TODO        : Nothing
