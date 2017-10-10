@@ -1,5 +1,3 @@
-var jsonfile = require('jsonfile');
-
 /**************************************************
 * Name        : auth
 * Description : Check credentials with user input
@@ -10,12 +8,13 @@ var jsonfile = require('jsonfile');
 **************************************************/
 function auth()
     {
+        const ADMIN_USER = process.env.ADMIN_USER || 'user';
+        const ADMIN_PASS = process.env.ADMIN_PASS || 'pass';
+        
         return {
             check: function(user_hash, pass_hash)
                 {
-                    var credentials = jsonfile.readFileSync('./admin/credentials.json');
-                    
-                    return (credentials[user_hash] !== undefined && credentials[user_hash] == pass_hash);
+                    return user_hash = ADMIN_USER && pass_hash == ADMIN_PASS;
                 }
         };
     }
