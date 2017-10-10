@@ -8,12 +8,14 @@
 **************************************************/
 function auth()
     {
-        const ADMIN_USER = process.env.ADMIN_USER || 'user';
-        const ADMIN_PASS = process.env.ADMIN_PASS || 'pass';
+        var ADMIN_USER, ADMIN_PASS;
         
         return {
             check: function(user_hash, pass_hash)
                 {
+                    ADMIN_USER = process.env.ADMIN_USER || 'user';
+                    ADMIN_PASS = process.env.ADMIN_PASS || 'pass';
+                    
                     return user_hash = ADMIN_USER && pass_hash == ADMIN_PASS;
                 }
         };
