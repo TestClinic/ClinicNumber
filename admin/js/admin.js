@@ -58,7 +58,7 @@ function create_socket()
 
                         console.log(json.n);
 
-                        $('input[name="toggle"]').prop('checked', json.reset_on);
+                        $('input[name="toggle"]').prop('checked', json.reset_on == 'on' ? true : false);
 
                         $('#hour').val(json.reset_time['h']);
                         $('#minute').val(json.reset_time['m']);
@@ -68,7 +68,6 @@ function create_socket()
                     }
                 else if(json.msg == 'reset')
                     {
-
                         showed_number.text(json.n);
                         showed_number.css({'font-size':'80px','color':'white'});
 

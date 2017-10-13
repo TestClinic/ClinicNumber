@@ -76,12 +76,15 @@ function ws_server()
                 {
                     var that = this;
                     
+                    h = parseInt(h);
+                    m = parseInt(m);
+                    
                     this.reset_time.h = h;
                     this.reset_time.m = m;
 
                     var sched = { schedules: [{ h: [h], m: [m], s: [0] }]};
 
-                    this.reset_timer = later.setInterval( () => that.reset_n(), sched);
+                    this.reset_timer = later.setInterval( () => that.reset_n(), sched );
 
 
                     var d = new Date();
