@@ -88,7 +88,7 @@ function ws_server()
 
                     this.send_client
                         ({
-                            msg: 'reset timer changed to: ' + h + ':' + m +
+                            msg: 'reset timer on: ' + h + ':' + m +
                                 ' (now: ' + d.getUTCHours() + ':' + d.getUTCMinutes() + ')'
                         });
                 },
@@ -161,12 +161,7 @@ function ws_server()
                                         {
                                             if(json.com == 'on')
                                                 {
-                                                    if(that.reset_on === false)
-                                                        {
-                                                            that.set_reset_time(json.h, json.m);
-                                                            
-                                                            that.send_client({ msg: 'reset timer set off.' });
-                                                        }
+                                                    that.set_reset_time(json.h, json.m);
                                                     
                                                     that.reset_on = true;
                                                 }
@@ -177,7 +172,7 @@ function ws_server()
                                                             that.reset_timer.clear();
                                                             that.reset_timer = '';
                                                             
-                                                            that.send_client({ msg: 'reset timer set on.' });
+                                                            that.send_client ({ msg: 'reset timer off.' });
                                                         }
                                                     
                                                     that.reset_on = false;

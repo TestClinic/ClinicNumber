@@ -217,10 +217,10 @@ window.onload = function()
               },30);
               //エフェクトコード終わり
 
-                showed_number.text( (i, old) => parseInt(old) + 1 );
-                showed_number.css({'font-size':'80px','color':'white'});
+              showed_number.text( (i, old) => parseInt(old) + 1 );
+              showed_number.css({'font-size':'80px','color':'white'});
 
-                broadcast_number();
+              broadcast_number();
             });
 
         reset_button.on('click', function()
@@ -234,15 +234,12 @@ window.onload = function()
                 config_area.toggle();
             });
         resume.on('click', function()
-            {   var on_off = $('#toggle:checked').val()
+            {   var on_off = $('#toggle:checked').val();
                 var hour   = $('#hour').val();
                 var minute = $('#minute').val();
 
-                if(on_off){
-                    set_reset('on', hour, minute);
-                }else{
-                    set_reset('off', hour, minute);
-                }
+                if(on_off){ set_reset('on',  hour, minute); }
+                else      { set_reset('off', hour, minute); }
 
                 console.log(on_off, hour, minute);
                 config_area.hide();
