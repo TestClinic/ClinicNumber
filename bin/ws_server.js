@@ -75,9 +75,7 @@ function ws_server()
             set_reset_time: function(h, m)
                 {
                     var that = this;
-
-                    if(this.reset_timer !== '') { this.reset_timer.clear(); }
-
+                    
                     this.reset_time.h = h;
                     this.reset_time.m = m;
 
@@ -161,39 +159,29 @@ function ws_server()
                                         }
                                     else if(json.msg == 'set_reset')
                                         {
-                                            var was_off = !that.reset_on;
-
-                                            if     (json.com == 'on'    ) { that.reset_on = true;           }
-                                            else if(json.com == 'off'   ) { that.reset_on = false;          }
-                                            else if(json.com == 'toggle') { that.reset_on = !that.reset_on; }
-
-                                            if(that.reset_on && was_off)
+                                            if(json.com == 'on')
                                                 {
-                                                    var sched =
+                                                    if(that.reset_on === false)
                                                         {
-                                                            schedules:
-                                                                [{
-                                                                    h: [that.reset_time.h],
-                                                                    m: [that.reset_time.m],
-                                                                    s: [0]
-                                                                }]
-                                                        };
-
-                                                    that.reset_timer = later.setInterval(() => that.reset_n(), sched);
-
+                                                            that.set_reset_time(json.h, json.m);
+                                                            
+                                                            that.send_client({ msg: 'reset timer set off.' });
+                                                        }
+                                                    
+                                                    that.reset_on = true;
                                                 }
-                                            else if(!that.reset_on)
+                                            else if(json.com == 'off')
                                                 {
-                                                    if(that.reset_timer !== '') { that.reset_timer.clear(); }
+                                                    if(that.reset_on === true)
+                                                        {
+                                                            that.reset_timer.clear();
+                                                            that.reset_timer = '';
+                                                            
+                                                            that.send_client({ msg: 'reset timer set on.' });
+                                                        }
+                                                    
+                                                    that.reset_on = false;
                                                 }
-
-                                            that.send_client('reset timer ' + (that.reset_on ? 'on' : 'off') + '.');
-                                        }
-                                    else if(json.msg == 'set_reset_time')
-                                        {
-                                            that.reset_on = true;
-
-                                            that.set_reset_time(json.h, json.m);
                                         }
                                 });
 

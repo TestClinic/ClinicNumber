@@ -136,40 +136,23 @@ function to_UTC(h, m)
 /**********************************************************
 * Name        : set_reset
 * Description : Change reset timer status
-* Takes       : com (str): Either 'on', 'off' or 'toggle'
+* Takes       : com (str): Either 'on' or 'off'
+*               h (str)  : Reset hour
+*               m (str)  : Reset minutes
 * Returns     : Nothing
 * Notes       : Nothing
 * TODO        : Nothing
 **********************************************************/
-function set_reset(com)
+function set_reset(com, h, m)
     {
+        [h, m] = to_UTC(h, m);
+        
         var json =
             {
                 msg: 'set_reset',
-                com: com
-            };
-
-        socket.send( JSON.stringify(json) );
-    }
-
-/*************************************************
-* Name        : set_reset_time
-* Description : Change reset time
-* Takes       : h (int) - hour
-*               m (int) - minutes
-* Returns     : Nothing
-* Notes       : If timer is off, it's turned on
-* TODO        : Nothing
-*************************************************/
-function set_reset_time(h, m)
-    {
-        [h, m] = to_UTC(h, m);
-
-        var json =
-            {
-                msg: 'set_reset_time',
-                h: h,
-                m: m
+                com: com,
+                m: m,
+                h: h
             };
 
         socket.send( JSON.stringify(json) );
@@ -252,16 +235,14 @@ window.onload = function()
             });
         resume.on('click', function()
             {   var on_off = $('#toggle:checked').val()
-                var hour = $('#hour').val();
+                var hour   = $('#hour').val();
                 var minute = $('#minute').val();
 
                 if(on_off){
-                    set_reset(true);
+                    set_reset('on', hour, minute);
                 }else{
-                    set_reset(false);
+                    set_reset('off', hour, minute);
                 }
-
-                set_reset_time(hour, minute);
 
                 console.log(on_off, hour, minute);
                 config_area.hide();
