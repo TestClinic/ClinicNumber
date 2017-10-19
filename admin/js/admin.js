@@ -60,8 +60,8 @@ function create_socket()
 
                         $('input[name="toggle"]').prop('checked', json.reset_on == 'on' ? true : false);
 
-                        $('#hour').val(json.reset_time['h']);
-                        $('#minute').val(json.reset_time['m']);
+                        $('#hour').val(json.reset_time.h);
+                        $('#minute').val(json.reset_time.m);
 
                         // json.reset_on
                         // json.reset_time
